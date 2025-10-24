@@ -10,7 +10,7 @@ You need access to either:
 - **TPM**: The standard version of The Perfect Macro
 - **TPM+**: The premium version with additional features
 
-Contact the TPM team to get access to the bot software.
+Contact the TPM team to get access to the premium version.
 
 ### 2. Minecraft Account
 
@@ -61,13 +61,14 @@ TPM+ may have different requirements or capabilities. Check the [TPM+ documentat
 
 You'll need access to a config file. Configs can be:
 - **Free configs**: Available from the community
-- **Paid configs**: Premium configurations optimized for specific strategies
+- **Paid configs**: Premium configurations optimized better.
 
-Configs are loaded through the Cofl net panel at [sky.coflnet.com/flipper](https://sky.coflnet.com/flipper).
+Configs are loaded and upsated through Coflnet.
+They can be managed at: [sky.coflnet.com/flipper](https://sky.coflnet.com/flipper).
 
 ### Initial Purse
 
-- It's recommended to have at least 10-50 million coins in your purse to start flipping
+- It's recommended to have at least 50-100m coins in your purse to start flipping
 - Higher purse amounts allow for more valuable flips
 - Your config should be adjusted based on your available purse
 
