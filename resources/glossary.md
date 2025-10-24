@@ -4,6 +4,172 @@ icon: book-open
 
 # Glossary
 
+This glossary contains essential terms and concepts for using TPM, the SkyCofl Minecraft automation tool.
+
+## TPM & Minecraft Terms
+
+### A
+
+**Automation Script:** A set of instructions that TPM executes to perform tasks automatically in Minecraft, such as resource gathering, crafting, or inventory management.
+
+**Auto-crafting:** The automatic creation of items in Minecraft by combining resources according to crafting recipes, managed by TPM.
+
+### B
+
+**Bedrock Edition:** One of the two main versions of Minecraft, primarily for consoles and mobile devices. TPM may have different compatibility with Bedrock vs Java Edition.
+
+### C
+
+**Chunk:** A 16x16 block column of the Minecraft world. Understanding chunks is important for automation tasks that span large areas.
+
+**Client:** The Minecraft game application that players use to connect to servers. TPM can sometimes act as a client to automate tasks.
+
+**Configuration File:** A YAML or JSON file (typically `config.yml`) where you define TPM's settings, including server connection details, automation rules, and behavior parameters.
+
+### D
+
+**Dimension:** Separate areas in Minecraft (Overworld, Nether, End). TPM automation may need to handle different dimensions differently.
+
+### F
+
+**Farm:** An automated structure in Minecraft designed to produce resources. TPM can manage and optimize farm operations.
+
+### I
+
+**Inventory Management:** TPM's ability to automatically organize, sort, and transfer items between different storage containers.
+
+### J
+
+**Java Edition:** The original version of Minecraft, primarily for PC. TPM is designed to work with Minecraft Java Edition servers.
+
+### M
+
+**Minecraft Server:** A multiplayer Minecraft instance that allows multiple players to connect and play together. TPM connects to and automates tasks on these servers.
+
+**Mod:** A modification to Minecraft that changes or adds functionality. TPM may interact with certain server-side mods.
+
+**Module:** A component of TPM that handles a specific automation task (e.g., resource gathering module, crafting module).
+
+### P
+
+**Plugin:** Server-side software that extends Minecraft functionality. TPM may need to work alongside server plugins.
+
+### R
+
+**Resource Gathering:** The automatic collection of materials and items in Minecraft, one of TPM's core automation features.
+
+**Redstone:** Minecraft's electrical system. TPM may interact with or optimize redstone contraptions.
+
+### S
+
+**SkyCofl:** The ecosystem of Minecraft automation tools that TPM is part of. SkyCofl provides various utilities for Minecraft server management and automation.
+
+**Server Address:** The IP address or domain name of the Minecraft server that TPM connects to, configured in the TPM config file.
+
+**Spawn:** The default location where players appear in a Minecraft world. Relevant for setting up TPM automation zones.
+
+### T
+
+**TPM (Tool/Program/Manager):** The SkyCofl Minecraft automation tool this documentation covers. Automates repetitive tasks on Minecraft servers.
+
+**Tick:** Minecraft's basic unit of time. One tick equals 1/20th of a second (50ms). Understanding ticks is important for timing automation tasks.
+
+### V
+
+**VPS (Virtual Private Server):** A virtualized server running in the cloud, providing dedicated resources for running TPM 24/7. See the [VPS Setup Guide](../getting-started/vps-setup.md) for details.
+
+---
+
+## Technical & Server Terms
+
+### B
+
+**Bandwidth:** The amount of data that can be transferred over your VPS network connection. Important for monitoring server performance.
+
+**Backup:** A copy of your TPM configuration and data. Regular backups prevent data loss.
+
+### C
+
+**CPU (Central Processing Unit):** The processor in your VPS that executes TPM and Minecraft operations. More CPU cores can improve performance.
+
+**CLI (Command Line Interface):** The text-based interface used to interact with your VPS and TPM. Essential for server management.
+
+### D
+
+**Daemon:** A background process that runs continuously. TPM can run as a daemon for 24/7 operation.
+
+**DigitalOcean:** A popular VPS provider often used for hosting TPM. See [VPS Setup Guide](../getting-started/vps-setup.md).
+
+**Droplet:** DigitalOcean's term for a VPS instance.
+
+### F
+
+**Firewall:** Security software that controls incoming and outgoing network traffic. Configure it to allow TPM's required connections.
+
+### H
+
+**Host:** The server or VPS where TPM is installed and running.
+
+### J
+
+**Java:** The programming language and runtime environment required to run TPM and Minecraft servers. TPM requires Java 17 or higher.
+
+**JVM (Java Virtual Machine):** The runtime environment that executes Java applications like TPM.
+
+### L
+
+**Linux:** The operating system typically used for VPS hosting. Ubuntu is the recommended distribution for TPM.
+
+**Latency:** The delay in network communication between TPM and the Minecraft server. Lower latency improves performance.
+
+**Log File:** A file where TPM records its operations, errors, and events. Essential for troubleshooting.
+
+### M
+
+**Memory (RAM):** The volatile memory used by your VPS to run applications. TPM requires at least 1GB RAM, 2GB recommended.
+
+### P
+
+**Port:** A numeric identifier for network connections. Minecraft typically uses port 25565.
+
+**Process:** An instance of a running application. TPM runs as a process on your VPS.
+
+### R
+
+**Root:** The administrator account on Linux systems with full system access. Avoid running TPM as root for security.
+
+### S
+
+**Screen:** A Linux utility that allows you to run TPM in a background session that persists after disconnecting from SSH.
+
+**SSH (Secure Shell):** The encrypted protocol used to securely connect to and manage your VPS remotely.
+
+**SSH Key:** A cryptographic key pair used for secure authentication to your VPS, more secure than password authentication.
+
+**Sudo:** A command that grants temporary administrator privileges for executing specific commands.
+
+**Systemd:** The Linux service manager that can automatically start TPM on boot and manage its lifecycle.
+
+### T
+
+**Terminal:** The application used to access the command-line interface.
+
+**Tmux:** An alternative to Screen for managing terminal sessions, allowing TPM to run in the background.
+
+### U
+
+**Ubuntu:** A popular Linux distribution recommended for running TPM. Ubuntu 22.04 LTS is the current recommended version.
+
+**Uptime:** The amount of time a server has been running without interruption. Important for 24/7 automation.
+
+### Y
+
+**YAML:** The file format commonly used for TPM configuration files. YAML is human-readable and uses indentation for structure.
+
+---
+
+## General Documentation Terms
+
 ### A
 
 **Actions menu:** The menu that opens when you click the three dots next to a page or item in the GitBook interface. The Actions menu may show different options depending on your current view mode.

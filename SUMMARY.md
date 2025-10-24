@@ -2,8 +2,9 @@
 
 ## Getting Started
 
-* [Software Documentation](README.md)
+* [TPM Documentation](README.md)
 * [Quickstart](getting-started/quickstart.md)
+* [VPS Setup](getting-started/vps-setup.md)
 * [Installation](getting-started/import.md)
 * [Configuration Guide](getting-started/git-sync/README.md)
   * [Basic Configuration](getting-started/git-sync/enabling-github-sync.md)
@@ -167,6 +168,7 @@
   * [Navigation Toolbar](resources/gitbook-ui/toolbar-on-published-sites-and-site-previews.md)
 * [Keyboard Shortcuts](resources/keyboard-shortcuts.md)
 * [Glossary](resources/glossary.md)
+* [Link Dictionary](resources/link-dictionary.md)
 
 ## Help & Support
 
