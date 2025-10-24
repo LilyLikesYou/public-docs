@@ -6,7 +6,7 @@ This guide explains how to set up a Virtual Private Server (VPS) for running sta
 
 **Standard TPM users**: A VPS is required to run TPM 24/7 without keeping your personal computer on.
 
-**TPM+ users**: Check with the TPM team about hosting requirements - TPM+ may have different options.
+**TPM+ users**: TPM+ can only he hosted via the CoflNet discord bot.
 
 ## What is a VPS?
 
@@ -49,7 +49,7 @@ For running TPM:
 - **CPU**: 1 vCPU (adequate for single account)
 - **RAM**: 1GB minimum (2GB recommended for multiple accounts)
 - **Storage**: 25GB SSD
-- **OS**: Ubuntu 20.04 LTS or Ubuntu 22.04 LTS
+- **OS**: Ubuntu or Debian
 - **Network**: 1TB bandwidth/month
 
 **Cost**: Typically $5-6/month for basic plans
@@ -60,9 +60,9 @@ For running TPM:
 
 1. Sign up with your chosen provider
 2. Create a new instance/droplet
-3. Select **Ubuntu 22.04 LTS** as OS
+3. Select **Ubuntu or Debian** as OS
 4. Choose appropriate plan ($5-6/month is sufficient)
-5. Select datacenter region (closer to Hypixel servers is better - US East preferred)
+5. Select datacenter region (closer to Hypixel servers is better - CHICAGO)
 6. Add SSH key for security
 7. Create the instance
 
@@ -76,9 +76,11 @@ ssh root@your-vps-ip
 
 #### From Windows:
 
-1. Download PuTTY or use Windows Terminal
+1. Download Termius
 2. Connect to your VPS IP on port 22
 3. Login as root
+
+Note: You can alsp use Termius on mobile via the app store.
 
 ### Step 3: Initial Server Setup
 
@@ -87,10 +89,6 @@ After connecting, secure and update your server:
 ```bash
 # Update system
 sudo apt update && sudo apt upgrade -y
-
-# Create dedicated user (optional but recommended)
-adduser tpmuser
-usermod -aG sudo tpmuser
 
 # Configure firewall
 sudo ufw allow OpenSSH
@@ -116,8 +114,8 @@ You should see Node.js v18.x.x and npm version.
 ### Step 5: Install Required Tools
 
 ```bash
-# Install screen for background operation
-sudo apt install screen -y
+# Install tmux for background operation
+sudo apt install tmux -y
 
 # Install git (if needed)
 sudo apt install git -y
@@ -130,43 +128,40 @@ sudo apt install git -y
 mkdir -p ~/tpm
 cd ~/tpm
 
-# Download TPM files
-# (Instructions provided by TPM team)
-# This may involve git clone or file transfer
+# Download TPM files (TODO: EXPAND)
+- Via TPM-Loader file from Github releases
+- By git cloning the repository
 ```
-
-Contact the TPM team for specific download instructions.
 
 ### Step 7: Install Dependencies
 
+Navigate to the folder that conrainers TPM
+
 ```bash
-cd ~/tpm
-npm install
+npm install .
 ```
 
 This installs all required Node.js packages for TPM.
 
+OR, if you are using a loader
+```bash
+tmux
+sudo chmod 777 ./tpm-loader
+./tpm-loader
+```
+
 ### Step 8: Configure TPM
 
-Create your `config.js` file:
+Edit your `config.json5` file:
 
 ```bash
-nano config.js
+nano config.json5
 ```
 
 Add your configuration (see [Config Structure](../configuration/config-structure.md)):
 
-```javascript
-module.exports = {
-    igns: ["YourMinecraftAccount"],
-    discordID: "your-backend-id",
-    webhook: "your-discord-webhook",
-    session: "your-coflnet-password",
-
-    delay: 250,
-    bedSpam: true,
-    // ... other settings
-}
+```json
+{TODO: ADD EXTRA INFO}
 ```
 
 Save and exit (Ctrl+X, then Y, then Enter).
@@ -186,7 +181,7 @@ You should see:
 - "Ready to receive flips" or similar
 
 If you see errors, check:
-- Config.js syntax
+- Config.json5 syntax
 - Account credentials
 - Internet connectivity
 
@@ -194,15 +189,15 @@ Press Ctrl+C to stop.
 
 ## Running TPM 24/7
 
-### Using Screen (Recommended)
+### Using Tmux (Recommended)
 
-Screen allows TPM to run even after you disconnect from SSH.
+Tmux allows TPM to run even after you disconnect from SSH.
 
-**Start TPM in screen:**
+**Start TPM in Tmux:**
 
 ```bash
 # Create a new screen session
-screen -S tpm
+tmux
 
 # Start TPM
 cd ~/tpm
@@ -215,12 +210,12 @@ node index.js
 
 ```bash
 # List screens
-screen -ls
+tmux -ls
 
 # Reattach to TPM screen
-screen -r tpm
+tmux a
 
-# Kill a screen
+# Kill a screen (the ego may die)
 screen -X -S tpm quit
 ```
 
@@ -259,20 +254,10 @@ If you configured webhooks, monitor through Discord notifications.
 
 ```bash
 # Reattach to screen
-screen -r tpm
+tmux -r tpm
 
 # Or view PM2 logs
 pm2 logs tpm
-```
-
-### Checking Bot Status
-
-```bash
-# If using screen
-screen -ls
-
-# If using PM2
-pm2 status
 ```
 
 ## Maintenance
@@ -288,7 +273,7 @@ sudo apt update && sudo apt upgrade -y
 # Update TPM (if updates available)
 cd ~/tpm
 git pull  # if using git
-npm install  # update dependencies
+npm install . # update dependencies
 ```
 
 ### Monitoring Resources
@@ -307,14 +292,14 @@ top
 ### Restart TPM
 
 ```bash
-# If using screen
-screen -X -S tpm quit
-screen -S tpm
+# If using tmux
+tmux -X -S tpm quit
+tmux -S tpm
 node index.js
 # Ctrl+A, then D
 
 # If using PM2
-pm2 restart tpm
+pm2 restart
 ```
 
 ## Troubleshooting
@@ -328,7 +313,7 @@ node --version  # Should be 16+
 
 **Check config syntax:**
 ```bash
-node -c config.js  # Check for syntax errors
+node -c config.json5 # Check for syntax errors
 ```
 
 **View error logs:**
@@ -339,7 +324,7 @@ node -c config.js  # Check for syntax errors
 
 **Check internet connection:**
 ```bash
-ping hypixel.net
+ping mc.hypixel.net
 ```
 
 **Check memory:**
@@ -376,7 +361,7 @@ free -h
 2. **Keep Updated**: Regular apt updates
 3. **Enable Firewall**: UFW blocks unauthorized access
 4. **Strong Passwords**: If using password auth
-5. **Backup Configs**: Save config.js regularly
+5. **Backup Configs**: Save config.json5 regularly
 
 ### Disable Password Authentication
 
@@ -445,8 +430,8 @@ Each account runs as separate bot instance automatically.
 
 ### 1. Choose Location Wisely
 
-- US East coast recommended (closer to Hypixel)
-- Lower latency = faster flip claiming
+- Chicago recommended (closer to Hypixel)
+- Lower latency = faster flip buying
 
 ### 2. Monitor Costs
 
@@ -456,7 +441,7 @@ Each account runs as separate bot instance automatically.
 
 ### 3. Keep Configs Secure
 
-- Never share config.js (contains session password)
+- Never share config.json5 (contains session password)
 - Use environment variables for sensitive data
 - Regular backups
 
@@ -488,19 +473,5 @@ TPM issues?
 - Check TPM documentation
 - Contact TPM support
 - Ask config provider
-
-## Summary
-
-**Setup Checklist:**
-- [ ] Create VPS account
-- [ ] Set up Ubuntu instance
-- [ ] Connect via SSH
-- [ ] Install Node.js
-- [ ] Download TPM
-- [ ] Configure TPM
-- [ ] Test TPM
-- [ ] Run with screen/PM2
-- [ ] Set up monitoring
-- [ ] Configure backups
 
 With your VPS properly set up, TPM can run 24/7 and flip continuously!
