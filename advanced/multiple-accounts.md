@@ -82,21 +82,8 @@ module.exports = {
 
 ### Authentication
 
-**Token Authentication** (length > 16 characters):
-```javascript
-igns: [
-    "verylong token here12345",
-    "another token string67890"
-]
-```
-
-**Microsoft Authentication** (username/email):
-```javascript
-igns: [
-    "username1",
-    "username2@email.com"
-]
-```
+- Auth cache can be cleared via `sudo rm -rf root/.minecraft/`
+- This fixes most auth issues 
 
 ### Separate Discord Webhooks
 
@@ -146,41 +133,6 @@ Each account uses a different config:
 - Specialization (one for pets, one for armor, etc.)
 - Different strategies
 - Different markets
-
-### Strategy 3: Rotation Strategy
-
-Accounts rotate on/off to avoid detection:
-
-**Setup:**
-```javascript
-autoRotate: {
-    "Account1": "r2:3f1",  // Rest 2h, flip 3h, friend 1h
-    "Account2": "r1:2f2",  // Rest 1h, flip 2h, friend 2h
-    "Account3": "r3:4f1"   // Rest 3h, flip 4h, friend 1h
-}
-```
-
-**Use Case:**
-- Avoiding detection
-- Splitting uptime
-- Reducing risk
-
-### Strategy 4: Main + Backup
-
-One main account with backup accounts:
-
-**Setup:**
-- Main account: aggressive settings, high volume
-- Backup accounts: conservative, lower volume
-
-**Use Case:**
-- Risk management
-- Main account for primary profits
-- Backups for safety
-
-## Monitoring Multiple Accounts
-
-### Discord Notifications
 
 **Option 1: Single Webhook**
 
@@ -317,117 +269,10 @@ free -h
 - Some accounts idle
 
 **Solutions:**
-- Check each account's `/cofl status`
 - Verify all configs loaded
 - Check individual filters
 - Ensure Cofl connection active
-
-## Advanced Multi-Account Setup
-
-### Load Balancing
-
-Distribute flips across accounts:
-
-```javascript
-// Configure different maxprice per account
-// Account 1: focus on cheap items (< 50M)
-// Account 2: focus on medium items (50-200M)
-// Account 3: focus on expensive items (> 200M)
-```
-
-### Specialized Accounts
-
-Each account specializes:
-- **Account 1**: Pets only
-- **Account 2**: Weapons/Armor
-- **Account 3**: Materials/Resources
-
-### Rotation Scheduling
-
-Complex rotation schedules:
-
-```javascript
-autoRotate: {
-    "Account1": "r0:6f2",   // Active 6h, friend 2h, no rest
-    "Account2": "r4:4f0",   // Rest 4h, active 4h, no friend
-    "Account3": "r2:3f3"    // Balanced rotation
-}
-```
-
-## Cost Considerations
-
-### Single VPS vs Multiple
-
-**Single VPS (Recommended for 2-4 accounts):**
-- More cost-effective
-- Easier to manage
-- Shared resources
-
-**Multiple VPS (For 5+ accounts):**
-- Better performance
-- More reliable
-- Higher cost
-
-### Example Costs
-
-- 1-2 accounts: $5-6/mo VPS
-- 3-4 accounts: $10-12/mo VPS
-- 5-6 accounts: $20/mo VPS or 2x $10/mo VPS
-- 6+ accounts: Multiple VPS instances
-
-## Security Considerations
-
-### Account Safety
-
-- Don't run too many accounts from one IP
-- Use rotation to appear more natural
-- Monitor for unusual patterns
-- Follow Hypixel rules
-
-### Configuration Security
-
-- Keep config.js secure
-- Each account should have strong credentials
-- Regular backups
-- Don't share account details
-
-## Example Multi-Account Config
-
-```javascript
-module.exports = {
-    // Three accounts
-    igns: ["MainFlipAccount", "AltAccount1", "AltAccount2"],
-
-    // Discord
-    discordID: "backend-id",
-    webhook: "main-webhook-url",
-
-    // Authentication
-    session: "coflnet-password",
-
-    // Global settings
-    delay: 250,
-    bedSpam: true,
-
-    // Flipping config
-    percentOfTarget: {
-        "0-10000000": 0.95,
-        "10000000-999999999": 0.97
-    },
-
-    // Auto-rotation (each account has different schedule)
-    autoRotate: {
-        "MainFlipAccount": "r2:4f1",
-        "AltAccount1": "r1:3f2",
-        "AltAccount2": "r3:3f1"
-    },
-
-    // Other settings
-    relist: true,
-    useCookie: true,
-    angryCoopPrevention: true
-}
-```
+- Contact VPS provider
 
 ## Next Steps
 
@@ -436,17 +281,5 @@ module.exports = {
 - Optimize [Filters and Settings](../configuration/filters-and-settings.md)
 - Monitor using [Troubleshooting Guide](../troubleshooting/common-issues.md)
 
-## Summary
-
-**Multi-Account Checklist:**
-- [ ] Sufficient VPS resources
-- [ ] Multiple Minecraft accounts
-- [ ] Configure igns array
-- [ ] Set up monitoring (webhooks)
-- [ ] Load configs per account
-- [ ] Test each account
-- [ ] Implement rotation (if desired)
-- [ ] Monitor performance
-- [ ] Optimize settings per account
 
 Running multiple accounts can significantly increase profits, but requires proper configuration and monitoring!
