@@ -167,3 +167,16 @@
   * [Navigation Toolbar](resources/gitbook-ui/toolbar-on-published-sites-and-site-previews.md)
 * [Keyboard Shortcuts](resources/keyboard-shortcuts.md)
 * [Glossary](resources/glossary.md)
+
+## Help & Support
+
+* [Help Center](help/README.md)
+  * [FAQs](help/faqs.md)
+  * [Troubleshooting](help/connectivity-issues.md)
+  * [Report Bugs](help/report-bugs.md)
+  * [Contact Support](help/support.md)
+
+## Template Documentation
+
+* [Template Customization Guide](TEMPLATE_GUIDE.md)
+* [Contributing](CONTRIBUTING.md)
