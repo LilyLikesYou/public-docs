@@ -28,15 +28,15 @@ To enable GitBook Assistant, open your site's dashboard, navigate to the **Setti
 Users can access GitBook Assistant in three ways:
 
 * Press <kbd>⌘</kbd> + <kbd>I</kbd> on Mac or <kbd>Ctrl</kbd> + <kbd>I</kbd> on PC
-*   Click the **GitBook Assistant**&#x20;
+*   Click the **GitBook Assistant**
 
     <picture><source srcset="../../.gitbook/assets/gitbook-assistant-dark.svg" media="(prefers-color-scheme: dark)"><img src="../../.gitbook/assets/gitbook-assistant.svg" alt=""></picture>
 
-    &#x20;button next to the **Ask or search…** bar
+    button next to the **Ask or search…** bar
 * Type a question into the **Ask or search…** bar and choose the 'Ask…' option at the top of the menu
 
 {% if visitor.claims.unsigned.reflag.EMBED_ASSISTANT_PANEL == true %}
-#### Embed GitBook Assistant in your product
+**Embed GitBook Assistant in your product**
 
 You can embed GitBook Assistant to help you bring your product and product knowledge closer together. Choose the embedding method that fits your stack:
 
@@ -46,7 +46,7 @@ You can embed GitBook Assistant to help you bring your product and product knowl
 
 **Additional guides:**
 
-* [Using with authenticated docs](authentication/using-with-authenticated-docs.md) – Required if your docs need sign-in
+* [Using with authenticated docs](using-with-authenticated-docs.md) – Required if your docs need sign-in
 * [Customizing the Assistant](configuration/customizing-gitbook-assistant.md) – Welcome messages, buttons, and suggestions
 * [Creating custom tools](configuration/creating-custom-tools.md) – Connect Assistant to your APIs
 * [API Reference](configuration/reference.md) – All available methods and events

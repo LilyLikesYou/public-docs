@@ -31,6 +31,6 @@ Before embedding the Assistant, ensure:
 
 Choose your embedding method above, then explore:
 
-* [Using with authenticated docs](../authentication/using-with-authenticated-docs.md) – Required if your docs require sign-in
+* [Using with authenticated docs](../using-with-authenticated-docs.md) – Required if your docs require sign-in
 * [Customizing the Assistant](../configuration/customizing-gitbook-assistant.md) – Add welcome messages, buttons, and suggestions
 * [Creating custom tools](../configuration/creating-custom-tools.md) – Connect Assistant to your product APIs

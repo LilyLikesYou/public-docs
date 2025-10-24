@@ -113,6 +113,6 @@ The quickest way to add GitBook Assistant to your website or app is by adding it
 
 * **Script URL is incorrect** – Ensure you're using your actual docs URL, not the example `docs.company.com`.
 * **Calling GitBook before script loads** – Wrap API calls in `script.onload` or place them after the script tag.
-* **Authenticated docs not accessible** – If your docs require sign-in, the Assistant cannot access content unless you provide the `gitbook-visitor-token`. See [Using with authenticated docs](../authentication/using-with-authenticated-docs.md).
+* **Authenticated docs not accessible** – If your docs require sign-in, the Assistant cannot access content unless you provide the `gitbook-visitor-token`. See [Using with authenticated docs](../using-with-authenticated-docs.md).
 * **CORS or CSP errors** – Ensure your site's Content Security Policy allows loading scripts and iframes from your GitBook domain.
 * **Widget not visible** – Check z-index conflicts with other elements on your page. The widget uses a high z-index by default.

@@ -115,7 +115,7 @@
     * [Script tag](publishing-documentation/gitbook-ai-assistant/embedding/script.md)
     * [Node.js/NPM](publishing-documentation/gitbook-ai-assistant/embedding/nodejs.md)
     * [React](publishing-documentation/gitbook-ai-assistant/embedding/react.md)
-  * [Authentication](publishing-documentation/gitbook-ai-assistant/authentication/using-with-authenticated-docs.md)
+  * [Authentication](publishing-documentation/gitbook-ai-assistant/using-with-authenticated-docs.md)
   * [Configuration](publishing-documentation/gitbook-ai-assistant/configuration/README.md)
     * [Customizing the Assistant](publishing-documentation/gitbook-ai-assistant/configuration/customizing-gitbook-assistant.md)
     * [Creating custom tools](publishing-documentation/gitbook-ai-assistant/configuration/creating-custom-tools.md)
