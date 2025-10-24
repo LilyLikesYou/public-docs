@@ -21,11 +21,11 @@ redirects:
   getting-started/publishing/collection-publishing: publishing-documentation/publish-a-docs-site.md
   getting-started/publishing/share-links: publishing-documentation/publish-a-docs-site/share-links.md
   getting-started/start-exploring: getting-started/quickstart.md
-  features/import: getting-started/import.md
+  features/import: getting-started/advanced-installation.md
   content-editor/editing-content/rich-text: creating-content/formatting.md
   content-editor/searching-your-content/lens: creating-content/searching-your-content/gitbook-ai.md
   content-editor/overview: creating-content/formatting.md
-  content-editor/import: getting-started/import.md
+  content-editor/import: getting-started/advanced-installation.md
   content-editor/editor: creating-content/formatting.md
   content-editor/editor/navigation: resources/gitbook-ui.md
   content-editor/editor/content-structure: creating-content/content-structure.md

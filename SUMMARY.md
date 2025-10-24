@@ -5,7 +5,7 @@
 * [TPM Documentation](README.md)
 * [Quickstart](getting-started/quickstart.md)
 * [VPS Setup](getting-started/vps-setup.md)
-* [Installation](getting-started/import.md)
+* [Advanced Installation](getting-started/advanced-installation.md)
 * [Configuration Guide](getting-started/git-sync/README.md)
   * [Basic Configuration](getting-started/git-sync/enabling-github-sync.md)
   * [Advanced Configuration](getting-started/git-sync/enabling-gitlab-sync.md)
