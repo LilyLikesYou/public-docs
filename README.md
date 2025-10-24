@@ -1,17 +1,62 @@
 ---
 description: >-
-  Create and publish beautiful documentation your users will love. GitBook has
-  all the tools you need to create everything from product guides to API
-  references and beyond.
+  Welcome to our software documentation. This guide will help you get started,
+  understand key features, and make the most of our platform.
 icon: book-open
 ---
 
-# GitBook Documentation
+# Software Documentation
 
-At GitBook, our mission is to provide a **user-friendly** and **collaborative** solution for creating, editing, and sharing product and API documentation.
+{% hint style="info" %}
+**Using This Template?** This is a documentation template! See [TEMPLATE_GUIDE.md](TEMPLATE_GUIDE.md) for instructions on customizing it for your project. Replace this message with your own welcome content.
+{% endhint %}
 
-<a href="https://app.gitbook.com/join?utm_content=homepage_button_sign_up&#x26;utm_source=gitbook_docs" class="button primary">Sign up</a> <a href="getting-started/quickstart.md" class="button secondary">Quickstart</a>
+Welcome to our comprehensive documentation! This guide is designed to help you quickly get up and running with our software, understand its features, and integrate it into your workflow.
 
-### Discover GitBook&#x20;
+## Quick Links
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="image">Cover image</th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover-dark data-type="image">Cover image (dark)</th></tr></thead><tbody><tr><td><strong>Creating content</strong></td><td>Edit pages, content and more in GitBook.</td><td><a href=".gitbook/assets/card_content_editor.svg">card_content_editor.svg</a></td><td><a href="broken-reference">Broken link</a></td><td><a href=".gitbook/assets/Content editor.svg">Content editor.svg</a></td></tr><tr><td><strong>Publishing documentation</strong></td><td>Publish your docs site to share with others.</td><td><a href=".gitbook/assets/card_published_documentation.svg">card_published_documentation.svg</a></td><td><a href="broken-reference">Broken link</a></td><td><a href=".gitbook/assets/Published documentation.svg">Published documentation.svg</a></td></tr><tr><td><strong>Collaboration</strong></td><td>Invite your team and collaborate in GitBook.</td><td><a href=".gitbook/assets/card_collaboration.svg">card_collaboration.svg</a></td><td><a href="broken-reference">Broken link</a></td><td><a href=".gitbook/assets/Collaboration.svg">Collaboration.svg</a></td></tr><tr><td><strong>Git Sync</strong></td><td>Sync with a Git repository to enable advanced workflows.</td><td><a href=".gitbook/assets/card_git_sync.svg">card_git_sync.svg</a></td><td><a href="getting-started/git-sync/">git-sync</a></td><td><a href=".gitbook/assets/Git Sync.svg">Git Sync.svg</a></td></tr><tr><td><strong>Integrations</strong></td><td>Integrate with your favorite tools and applications.</td><td><a href=".gitbook/assets/card_integrations.svg">card_integrations.svg</a></td><td><a href="broken-reference">Broken link</a></td><td><a href=".gitbook/assets/Integrations.svg">Integrations.svg</a></td></tr><tr><td><strong>Account management</strong></td><td>Manage your organization, account, and billing.</td><td><a href=".gitbook/assets/card_account_management.svg">card_account_management.svg</a></td><td><a href="broken-reference">Broken link</a></td><td><a href=".gitbook/assets/Account management.svg">Account management.svg</a></td></tr></tbody></table>
+<a href="getting-started/quickstart.md" class="button primary">Get Started</a> <a href="getting-started/import.md" class="button secondary">Installation</a>
+
+### Documentation Overview
+
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Getting Started</strong></td><td>Learn the basics and get your first setup running.</td><td><a href="getting-started/quickstart.md">quickstart.md</a></td></tr><tr><td><strong>User Guide</strong></td><td>Explore features and learn how to use the software.</td><td><a href="creating-content/formatting/">formatting</a></td></tr><tr><td><strong>API Reference</strong></td><td>Complete API documentation and code examples.</td><td><a href="api-references/openapi/">openapi</a></td></tr><tr><td><strong>Deployment</strong></td><td>Configure and deploy to production environments.</td><td><a href="publishing-documentation/publish-a-docs-site/">publish-a-docs-site</a></td></tr><tr><td><strong>Integrations</strong></td><td>Connect with your existing tools and workflows.</td><td><a href="integrations/install-an-integration.md">install-an-integration.md</a></td></tr><tr><td><strong>Help & Support</strong></td><td>Get help and find answers to common questions.</td><td><a href="help/">help</a></td></tr></tbody></table>
+
+## About This Documentation
+
+This documentation is built to provide clear, comprehensive guidance for users of all skill levels. Whether you're just getting started or looking for advanced configuration options, you'll find what you need here.
+
+## Features
+
+✨ **Easy to Use** - Get started in minutes with our quickstart guide
+🔧 **Flexible** - Configure to meet your specific needs
+🚀 **Scalable** - Grows with your project from prototype to production
+📚 **Well Documented** - Comprehensive guides and API references
+🤝 **Community Driven** - Open source with active community support
+
+## Documentation Structure
+
+* **Getting Started** - Installation, quickstart, and basic configuration
+* **User Guide** - Detailed feature documentation and tutorials
+* **API Reference** - Complete API documentation with examples
+* **Deployment** - Production deployment and configuration guides
+* **Collaboration** - Team workflows and contribution guidelines
+* **Integrations** - Connect with third-party tools
+* **Help & Support** - Troubleshooting and support resources
+
+## For Template Users
+
+If you're using this as a template for your own documentation:
+
+1. Read the [Template Customization Guide](TEMPLATE_GUIDE.md)
+2. Update this README with your project information
+3. Customize the [SUMMARY.md](SUMMARY.md) structure
+4. Replace example content with your documentation
+5. Configure GitBook and publish
+
+## Contributing
+
+We welcome contributions! See our [Contributing Guide](CONTRIBUTING.md) to get started.
+
+## License
+
+This project is licensed under [Your License Here] - see the LICENSE file for details.
