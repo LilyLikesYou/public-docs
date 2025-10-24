@@ -1,10 +1,10 @@
 # Config Structure
 
-This guide explains the structure of TPM's configuration file (`config.js`) and all available options.
+This guide explains the structure of TPM's configuration file (`config.json5`) and all available options.
 
 ## Overview
 
-TPM uses a JavaScript configuration file (`config.js`) that exports a configuration object. This file contains all settings for your bot's behavior, authentication, and flipping strategy.
+TPM uses a JSON configuration file (`config.json5`) that exports a configuration object. This file contains all settings for your bot's behavior, authentication, and flipping strategy.
 
 ## Basic Structure
 
@@ -160,26 +160,14 @@ bedSpam: true
 Price ranges with percentage markups for listing items.
 
 ```javascript
-percentOfTarget: {
-    "0-10000000": 0.95,      // Items under 10M: list at 95% of target
-    "10000000-50000000": 0.97, // 10M-50M: list at 97%
-    "50000000-999999999": 0.98 // Over 50M: list at 98%
-}
+TODO: FILL
 ```
-
-- Keys are price ranges (in coins)
-- Values are percentages of target price to list at
-- Higher percentages = more aggressive pricing
 
 ### `listHours` (Object)
 Listing duration by price tier.
 
 ```javascript
-listHours: {
-    "0-10000000": 24,        // List for 24 hours
-    "10000000-50000000": 48, // List for 48 hours
-    "50000000-999999999": 72 // List for 72 hours
-}
+TODO: FILL
 ```
 
 ### `useCookie` (Boolean)
@@ -189,28 +177,12 @@ Enable/disable cookie usage for relisting.
 useCookie: true
 ```
 
-Booster cookies reduce auction house fees.
-
 ### `autoCookie` (String)
 Auto-purchase interval for cookies. Supports y/d/h units.
 
 ```javascript
-autoCookie: "1d"  // Buy a cookie every 1 day
+autoCookie: "1d" 
 ```
-
-Options:
-- `"1d"` - Every day
-- `"12h"` - Every 12 hours
-- `"3d"` - Every 3 days
-
-### `relist` (Boolean)
-Automatic auction relisting toggle.
-
-```javascript
-relist: true
-```
-
-When enabled, items that don't sell will be automatically relisted.
 
 ### `roundTo` (Number)
 Rounding digit for relist pricing.
@@ -225,6 +197,7 @@ roundTo: 4  // Round to nearest 10,000
 ### `skip` (Object)
 Conditions for bypassing confirmation screens.
 
+# HIGHER BAN RISK
 ```javascript
 skip: {
     profitThreshold: 5000000,  // Auto-buy if profit > 5M
@@ -268,7 +241,7 @@ Reduces console spam by hiding minor messages.
 Notifications for bot updates.
 
 ```javascript
-pingOnUpdate: false
+pingOnUpdate: true
 ```
 
 ## Advanced Features
@@ -277,7 +250,7 @@ pingOnUpdate: false
 Island-based flipping capability.
 
 ```javascript
-visitFriend: "FriendUsername"
+visitFriend: ""
 ```
 
 Bot will visit friend's island for private flips or special access.
@@ -296,51 +269,6 @@ Schedule format: `"r[hours]:f[hours]f[hours]"`
 - `r` = rest/offline time
 - `f` = flip time
 - Can chain multiple periods
-
-## Example Complete Config
-
-```javascript
-module.exports = {
-    igns: ["MyAccount"],
-    discordID: "my-backend-id",
-    webhook: "https://discord.com/api/webhooks/...",
-    session: "my-coflnet-password",
-
-    delay: 250,
-    waittime: 15,
-    clickDelay: 100,
-    bedSpam: true,
-
-    percentOfTarget: {
-        "0-10000000": 0.95,
-        "10000000-50000000": 0.97,
-        "50000000-999999999": 0.98
-    },
-
-    listHours: {
-        "0-10000000": 24,
-        "10000000-50000000": 48,
-        "50000000-999999999": 72
-    },
-
-    useCookie: true,
-    autoCookie: "1d",
-    relist: true,
-    roundTo: 0,
-
-    angryCoopPrevention: true,
-    blockUselessMessages: true,
-    pingOnUpdate: false
-}
-```
-
-## Best Practices
-
-1. **Start Conservative**: Use higher profit thresholds initially
-2. **Monitor Closely**: Watch your bot for the first few hours
-3. **Adjust Gradually**: Make small changes and observe results
-4. **Backup Configs**: Save different configs for different strategies
-5. **Keep Secure**: Never share your config with sensitive data (session, webhooks)
 
 ## Next Steps
 
