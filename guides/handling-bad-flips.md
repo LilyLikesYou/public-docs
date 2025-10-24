@@ -62,30 +62,6 @@ Block the item immediately:
 /cofl blacklist add "[Item Name]"
 ```
 
-**Examples:**
-```
-/cofl blacklist add "Aspect of the Dragons"
-/cofl blacklist add "Special Pet"
-```
-
-This prevents TPM from buying the same bad item again.
-
-## Selling Bad Flips
-
-### Strategy 1: Competitive Pricing
-
-List below current market to ensure sale:
-
-```
-Current median: 15M
-List at: 14M (93% of median)
-```
-
-**When to use:**
-- Need coins urgently
-- Want to move inventory
-- Item has decent demand
-
 ### Strategy 2: Patient Approach
 
 List at fair price and wait:
@@ -108,7 +84,6 @@ Accept the loss and sell quickly:
 ```
 Paid: 15M
 Current value: 12M
-List at: 11.5M
 ```
 
 **When to use:**
