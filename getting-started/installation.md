@@ -36,7 +36,7 @@ mkdir tpm
 cd tpm
 
 # Download/clone the TPM files
-# (Instructions will be provided by TPM team)
+# TODO: ADD LINK
 ```
 
 ### Step 4: Install Dependencies
@@ -47,7 +47,7 @@ npm install
 
 ### Step 5: Configure TPM
 
-Create or edit your `config.js` file with your settings:
+Create or edit your `config.json5` file with your settings:
 
 ```javascript
 module.exports = {
@@ -60,6 +60,8 @@ module.exports = {
 ```
 
 See the [Config Structure](../configuration/config-structure.md) documentation for all available options.
+
+## Join discord.gg/cfghub to buy or download a config
 
 ### Step 6: Start TPM
 
@@ -106,14 +108,6 @@ For a complete guide on configuration options, see:
 - [Config Structure](../configuration/config-structure.md)
 - [Filters and Settings](../configuration/filters-and-settings.md)
 
-## Verifying Installation
-
-After starting TPM, check for:
-
-1. **Console Output**: Look for successful connection messages
-2. **Discord Notifications**: You should receive a startup notification if webhooks are configured
-3. **Minecraft Connection**: The bot should log into your Minecraft account and join Hypixel
-4. **Coflnet Connection**: The bot should connect to the Coflnet WebSocket
 
 ## Common Installation Issues
 
@@ -140,24 +134,24 @@ Ensure your firewall allows outbound connections to:
 - Coflnet servers
 - Discord (if using webhooks)
 
-## Screen/PM2 for Persistent Running
+## Tmux/PM2 for Persistent Running
 
 To keep TPM running even after closing your terminal:
 
-### Using Screen
+### Using tmux
 
 ```bash
-# Install screen
-sudo apt-get install screen
+# Install tmux
+sudo apt-get install tmux
 
-# Start a new screen session
-screen -S tpm
+# Start a new tmux session
+tmux
 
 # Start TPM
 node index.js
 
-# Detach from screen: Ctrl+A, then D
-# Reattach to screen: screen -r tpm
+# Detach from tmux: Ctrl+A, then D
+# Reattach to tmux: tmux a
 ```
 
 ### Using PM2
