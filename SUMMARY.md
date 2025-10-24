@@ -1,184 +1,38 @@
-# Table of contents
+# Table of Contents
+
+## Overview
+
+* [TPM Documentation](README.md)
 
 ## Getting Started
 
-* [TPM Documentation](README.md)
-* [Quickstart](getting-started/quickstart.md)
-* [VPS Setup](getting-started/vps-setup.md)
-* [Advanced Installation](getting-started/advanced-installation.md)
-* [Configuration Guide](getting-started/git-sync/README.md)
-  * [Basic Configuration](getting-started/git-sync/enabling-github-sync.md)
-  * [Advanced Configuration](getting-started/git-sync/enabling-gitlab-sync.md)
-  * [Environment Setup](getting-started/git-sync/content-configuration.md)
-  * [Development Environment](getting-started/git-sync/github-pull-request-preview.md)
-  * [Version Control](getting-started/git-sync/commits.md)
-  * [Multi-Project Setup](getting-started/git-sync/monorepos.md)
-  * [Troubleshooting](getting-started/git-sync/troubleshooting.md)
+* [Prerequisites](getting-started/prerequisites.md)
+* [Installation](getting-started/installation.md)
+* [Quickstart Guide](getting-started/quickstart.md)
 
-## User Guide
+## Configuration
 
-* [Basic Usage](creating-content/formatting/README.md)
-  * [Core Concepts](creating-content/formatting/inline.md)
-  * [Working with Data](creating-content/formatting/markdown.md)
-* [Features Overview](creating-content/content-structure/README.md)
-  * [Feature A](creating-content/content-structure/space.md)
-  * [Feature B](creating-content/content-structure/page.md)
-  * [Feature C](creating-content/content-structure/collection.md)
-* [Advanced Features](creating-content/blocks/README.md)
-  * [Data Processing](creating-content/blocks/paragraph.md)
-  * [File Operations](creating-content/blocks/heading.md)
-  * [Lists and Collections](creating-content/blocks/unordered-list.md)
-  * [Ordered Processing](creating-content/blocks/ordered-list.md)
-  * [Task Management](creating-content/blocks/task-list.md)
-  * [Notifications](creating-content/blocks/hint.md)
-  * [Templates](creating-content/blocks/quote.md)
-  * [Code Examples](creating-content/blocks/code-block.md)
-  * [File Handling](creating-content/blocks/insert-files.md)
-  * [Image Processing](creating-content/blocks/insert-images.md)
-  * [External Resources](creating-content/blocks/embed-a-url.md)
-  * [Data Tables](creating-content/blocks/table.md)
-  * [Dashboard Components](creating-content/blocks/cards.md)
-  * [Tabbed Interfaces](creating-content/blocks/tabs.md)
-  * [Expandable Sections](creating-content/blocks/expandable.md)
-  * [Wizards and Steps](creating-content/blocks/stepper.md)
-  * [Diagrams](creating-content/blocks/drawing.md)
-  * [Mathematical Functions](creating-content/blocks/math-and-tex.md)
-  * [Cross-References](creating-content/blocks/page-link.md)
-  * [Layout Options](creating-content/blocks/columns.md)
-  * [Dynamic Content](creating-content/blocks/conditional-content.md)
-  * [Reusable Components](creating-content/blocks/snippets.md)
-* [Variables and Configuration](creating-content/variables-and-expressions.md)
-* [Reusable Templates](creating-content/reusable-content.md)
-* [Search Functionality](creating-content/searching-your-content/README.md)
-  * [Basic Search](creating-content/searching-your-content/quick-find.md)
-  * [Advanced Search](creating-content/searching-your-content/gitbook-ai.md)
-* [AI-Assisted Features](creating-content/write-and-edit-with-ai.md)
-* [Version Management](creating-content/version-control.md)
-* [Internationalization](creating-content/translations.md)
-* [Link Management](creating-content/broken-links.md)
+* [Config Structure](configuration/config-structure.md)
+* [Filters and Settings](configuration/filters-and-settings.md)
+* [Cofl Commands](configuration/cofl-commands.md)
 
-## API References
+## Guides
 
-* [API Overview](api-references/openapi/README.md)
-  * [Authentication](api-references/openapi/add-an-openapi-specification.md)
-  * [Making Requests](api-references/openapi/insert-api-reference-in-your-docs.md)
-* [API Guides](api-references/guides/README.md)
-  * [Best Practices](api-references/guides/structuring-your-api-reference.md)
-  * [Code Examples](api-references/guides/adding-custom-code-samples.md)
-  * [Advanced Usage](api-references/guides/managing-api-operations.md)
-  * [Testing APIs](api-references/guides/configuring-the-test-it-button.md)
-  * [Data Types](api-references/guides/describing-enums.md)
-  * [CI/CD Integration](api-references/guides/support-for-ci-cd-with-api-blocks.md)
-* [SDK Reference](api-references/extensions-reference.md)
+* [Loading Configs](guides/loading-configs.md)
+* [Manual Pricing](guides/manual-pricing.md)
+* [Handling Bad Flips](guides/handling-bad-flips.md)
 
-## Deployment
+## TPM+
 
-* [Deployment Overview](publishing-documentation/publish-a-docs-site/README.md)
-  * [Production Deployment](publishing-documentation/publish-a-docs-site/public-publishing.md)
-  * [Internal Deployment](publishing-documentation/publish-a-docs-site/share-links.md)
-* [Architecture](publishing-documentation/site-structure/README.md)
-  * [Multiple Environments](publishing-documentation/site-structure/variants.md)
-  * [Service Organization](publishing-documentation/site-structure/site-sections.md)
-* [Customization](publishing-documentation/customization/README.md)
-  * [Branding](publishing-documentation/customization/icons-colors-and-themes.md)
-  * [Layout Configuration](publishing-documentation/customization/layout-and-structure.md)
-  * [Advanced Settings](publishing-documentation/customization/extra-configuration.md)
-* [Custom Domains](publishing-documentation/custom-domain.md)
-* [Subdirectory Configuration](publishing-documentation/setting-a-custom-subdirectory/README.md)
-  * [Cloudflare Setup](publishing-documentation/setting-a-custom-subdirectory/configuring-a-subdirectory-with-cloudflare.md)
-  * [Vercel Setup](publishing-documentation/setting-a-custom-subdirectory/configuring-a-subdirectory-with-vercel.md)
-  * [AWS Setup](publishing-documentation/setting-a-custom-subdirectory/configuring-a-subdirectory-with-aws.md)
-* [Service Settings](publishing-documentation/site-settings.md)
-* [Analytics](publishing-documentation/insights.md)
-* [URL Redirects](publishing-documentation/site-redirects.md)
-* [Authentication](publishing-documentation/authenticated-access/README.md)
-  * [Enabling Authentication](publishing-documentation/authenticated-access/enabling-authenticated-access.md)
-  * [Auth0 Integration](publishing-documentation/authenticated-access/setting-up-auth0.md)
-  * [Azure AD Integration](publishing-documentation/authenticated-access/setting-up-azure-ad.md)
-  * [AWS Cognito Integration](publishing-documentation/authenticated-access/setting-up-aws-cognito.md)
-  * [Okta Integration](publishing-documentation/authenticated-access/setting-up-okta.md)
-  * [OIDC Setup](publishing-documentation/authenticated-access/setting-up-oidc.md)
-  * [Custom Backend](publishing-documentation/authenticated-access/setting-up-a-custom-backend.md)
-* [Dynamic Content](publishing-documentation/adaptive-content/README.md)
-  * [Enabling Dynamic Content](publishing-documentation/adaptive-content/enabling-adaptive-content/README.md)
-    * [Cookie-based](publishing-documentation/adaptive-content/enabling-adaptive-content/cookies.md)
-    * [URL-based](publishing-documentation/adaptive-content/enabling-adaptive-content/url.md)
-    * [Feature Flags](publishing-documentation/adaptive-content/enabling-adaptive-content/feature-flags.md)
-    * [Auth-based](publishing-documentation/adaptive-content/enabling-adaptive-content/authenticated-access.md)
-  * [Content Adaptation](publishing-documentation/adaptive-content/adapting-your-content.md)
-  * [Testing](publishing-documentation/adaptive-content/testing-with-segments.md)
-* [Search Features](publishing-documentation/ai-search.md)
-* [AI Assistant](publishing-documentation/gitbook-ai-assistant/README.md)
-  * [Embedding](publishing-documentation/gitbook-ai-assistant/embedding/README.md)
-    * [Script Integration](publishing-documentation/gitbook-ai-assistant/embedding/script.md)
-    * [Node.js Integration](publishing-documentation/gitbook-ai-assistant/embedding/nodejs.md)
-    * [React Integration](publishing-documentation/gitbook-ai-assistant/embedding/react.md)
-  * [Authentication](publishing-documentation/gitbook-ai-assistant/using-with-authenticated-docs.md)
-  * [Configuration](publishing-documentation/gitbook-ai-assistant/configuration/README.md)
-    * [Customization](publishing-documentation/gitbook-ai-assistant/configuration/customizing-gitbook-assistant.md)
-    * [Custom Tools](publishing-documentation/gitbook-ai-assistant/configuration/creating-custom-tools.md)
-    * [Reference](publishing-documentation/gitbook-ai-assistant/configuration/reference.md)
-* [LLM Integration](publishing-documentation/llm-ready-docs.md)
-* [MCP Servers](publishing-documentation/mcp-servers-for-published-docs.md)
+* [Overview](tpm-plus/overview.md)
+* [Features](tpm-plus/features.md)
 
-## Collaboration
+## Advanced
 
-* [Real-time Editing](collaboration/live-edits.md)
-* [Change Requests](collaboration/change-requests.md)
-* [AI-Assisted Changes](collaboration/ai-change-requests.md)
-* [Export Options](collaboration/pdf-export.md)
-* [Team Management](collaboration/share.md)
-* [Review Process](collaboration/merge-rules.md)
-* [Comments & Feedback](collaboration/comments.md)
-* [Notifications](collaboration/notifications.md)
+* [VPS Setup](advanced/vps-setup.md)
+* [Multiple Accounts](advanced/multiple-accounts.md)
+* [Auto-Rotation](advanced/auto-rotation.md)
 
-## Integrations
+## Troubleshooting
 
-* [Integration Setup](integrations/install-an-integration.md)
-* [GitHub Copilot](integrations/github-copilot.md)
-* [Slack Integration](integrations/slack.md)
-* [VS Code Extension](integrations/visual-studio-code.md)
-
-## Account Management
-
-* [Subscription Plans](account-management/plans/README.md)
-  * [Free Tier](account-management/plans/community/README.md)
-    * [Sponsored Plans](account-management/plans/community/sponsored-site-plan.md)
-  * [Billing Information](account-management/plans/billing-policy.md)
-  * [Legacy Plans](account-management/plans/legacy-plans.md)
-* [Cancellations](account-management/cancelling-a-plan.md)
-* [User Settings](account-management/account-settings.md)
-* [Organization Settings](account-management/organization-settings.md)
-* [Member Management](account-management/member-management/README.md)
-  * [Invitations](account-management/member-management/invite-members-to-your-organization.md)
-  * [Roles & Permissions](account-management/member-management/roles.md)
-  * [Teams](account-management/member-management/teams.md)
-  * [Permissions Overview](account-management/member-management/permissions-and-inheritance.md)
-* [Single Sign-On](account-management/sso-and-saml/README.md)
-  * [SSO vs Non-SSO](account-management/sso-and-saml/sso-members-vs-non-sso.md)
-
-## Snippets
-
-* [Snippets Overview](snippets/overview.md)
-* [Using Snippets](snippets/snippets-beta.md)
-
-## Resources
-
-* [User Interface Guide](resources/gitbook-ui/README.md)
-  * [Navigation Toolbar](resources/gitbook-ui/toolbar-on-published-sites-and-site-previews.md)
-* [Keyboard Shortcuts](resources/keyboard-shortcuts.md)
-* [Glossary](resources/glossary.md)
-* [Link Dictionary](resources/link-dictionary.md)
-
-## Help & Support
-
-* [Help Center](help/README.md)
-  * [FAQs](help/faqs.md)
-  * [Troubleshooting](help/connectivity-issues.md)
-  * [Report Bugs](help/report-bugs.md)
-  * [Contact Support](help/support.md)
-
-## Template Documentation
-
-* [Template Customization Guide](TEMPLATE_GUIDE.md)
-* [Contributing](CONTRIBUTING.md)
+* [Common Issues](troubleshooting/common-issues.md)
