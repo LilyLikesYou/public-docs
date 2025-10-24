@@ -2,24 +2,6 @@
 
 Guide to using TPM's auto-rotation feature for scheduling account on/off times.
 
-## What is Auto-Rotation?
-
-Auto-rotation automatically schedules when your accounts are active (flipping) or inactive (resting). This helps:
-- Avoid detection by appearing more natural
-- Manage multiple accounts with different schedules
-- Reduce wear on accounts
-- Optimize flipping times
-
-## Why Use Auto-Rotation?
-
-### Benefits
-
-1. **Natural Behavior**: Accounts aren't online 24/7
-2. **Risk Reduction**: Less suspicious activity patterns
-3. **Account Health**: Gives accounts "rest" periods
-4. **Time Management**: Auto-switch between flipping and resting
-5. **Strategy Diversity**: Different accounts can have different schedules
-
 ### When to Use
 
 - Running accounts 24/7 concerns you
@@ -254,28 +236,11 @@ Plan schedules around peak flipping times:
 - Peak Hypixel hours: 3-8 PM EST
 - Off-peak: Late night/early morning
 
-### 4. Monitor Results
-
-Track:
-- Profits per account
-- Flips per hour
-- Schedule effectiveness
-- Any issues
-
-### 5. Adjust Based on Data
-
-Optimize schedules based on:
-- Which time periods are most profitable
-- When you get most flips
-- Account safety
-- Market conditions
-
 ## Advanced Rotation Strategies
 
 ### Strategy 1: Rolling Coverage
 
-Three accounts, always one active:
-
+Three accounts, always one 
 ```javascript
 autoRotate: {
     "Account1": "r0:8f0",   // Flip 0-8h
@@ -342,19 +307,7 @@ autoRotate: {
 3. Check system time on VPS
 4. Review Discord notifications
 
-### Account Not Starting After Rest
-
-**Symptoms:**
-- Bot doesn't come back online after rest period
-- Stuck in rest mode
-
-**Solutions:**
-1. Check TPM process is running
-2. Restart TPM manually
-3. Review error logs
-4. Check VPS resources
-
-### Discord Notifications Not Sending
+### Discord notifications not sending 
 
 **Symptoms:**
 - No rotation notifications in Discord
@@ -367,32 +320,8 @@ autoRotate: {
 
 ## Example Complete Config with Rotation
 
-```javascript
-module.exports = {
-    // Three accounts with different schedules
-    igns: ["MainFlip", "AltFlip1", "AltFlip2"],
-
-    discordID: "backend-id",
-    webhook: "discord-webhook-url",
-    session: "coflnet-password",
-
-    // Auto-rotation schedules
-    autoRotate: {
-        "MainFlip": "r1:6f1",   // Aggressive schedule
-        "AltFlip1": "r2:4f2",   // Balanced schedule
-        "AltFlip2": "r3:3f2"    // Conservative schedule
-    },
-
-    // Other settings
-    delay: 250,
-    bedSpam: true,
-    relist: true,
-
-    percentOfTarget: {
-        "0-10000000": 0.95,
-        "10000000-999999999": 0.97
-    }
-}
+```json
+{TBA}
 ```
 
 ## Visual Schedule Examples
@@ -435,16 +364,3 @@ Total cycle: 8 hours
 - Set up [VPS](vps-setup.md) for 24/7 operation
 - Review [Config Structure](../configuration/config-structure.md)
 - Monitor using [Troubleshooting Guide](../troubleshooting/common-issues.md)
-
-## Summary
-
-**Auto-Rotation Checklist:**
-- [ ] Understand rotation format (r:f:f)
-- [ ] Plan your schedule
-- [ ] Configure autoRotate in config.js
-- [ ] Test with one account first
-- [ ] Monitor Discord notifications
-- [ ] Track effectiveness
-- [ ] Adjust based on results
-
-Auto-rotation helps maintain natural account behavior while maximizing your flipping efficiency!
