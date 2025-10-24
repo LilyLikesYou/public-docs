@@ -1,51 +1,73 @@
----
-description: >-
-  Welcome to the TPM documentation. This guide will help you set up and use TPM,
-  a powerful SkyCofl Minecraft automation tool for your server.
-icon: pickaxe
----
-
 # TPM Documentation
 
-Welcome to the comprehensive TPM documentation! TPM is a SkyCofl Minecraft automation tool designed to help server administrators automate tasks, manage resources, and enhance their Minecraft server experience. This guide will help you set up TPM on a VPS, understand its features, and integrate it into your Minecraft server workflow.
+Welcome to the official documentation for **TPM (The Perfect Macro)** - an automated auction house flipper for Hypixel SkyBlock, officially partnered with SkyCofl.
 
-## Quick Links
+## What is TPM?
 
-<a href="getting-started/quickstart.md" class="button primary">Get Started</a> <a href="getting-started/vps-setup.md" class="button secondary">VPS Setup</a>
+TPM is an advanced automation tool that helps you flip items on the Hypixel SkyBlock auction house efficiently. It connects to SkyCofl (Coflnet) to receive flip opportunities and automatically purchases, manages, and relists items for profit.
 
-### Documentation Overview
+### Key Features
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Getting Started</strong></td><td>Learn the basics and set up TPM on your VPS.</td><td><a href="getting-started/quickstart.md">quickstart.md</a></td></tr><tr><td><strong>VPS Setup</strong></td><td>Complete guide to setting up a VPS for TPM.</td><td><a href="getting-started/vps-setup.md">vps-setup.md</a></td></tr><tr><td><strong>User Guide</strong></td><td>Explore TPM features and automation capabilities.</td><td><a href="creating-content/formatting/">formatting</a></td></tr><tr><td><strong>Glossary</strong></td><td>Essential terms and concepts for using TPM.</td><td><a href="resources/glossary.md">glossary.md</a></td></tr><tr><td><strong>Link Dictionary</strong></td><td>Important links and resources for TPM.</td><td><a href="resources/link-dictionary.md">link-dictionary.md</a></td></tr><tr><td><strong>Help & Support</strong></td><td>Get help and find answers to common questions.</td><td><a href="help/">help</a></td></tr></tbody></table>
+- **Automated Flipping**: Automatically buys and sells items based on your configured profit thresholds
+- **SkyCofl Integration**: Officially partnered with Coflnet for reliable flip data
+- **Multi-Account Support**: Manage multiple Minecraft accounts simultaneously
+- **Smart Relisting**: Automatically relists items with optimized pricing
+- **Bed Spam**: Fast auction claiming for competitive flips
+- **Discord Notifications**: Real-time updates on purchases, sales, and profits
+- **Auto-Rotation**: Schedule bot on/off times for different accounts
+- **Customizable Filters**: Fine-tune what items to buy based on profit, percentage, tags, and more
+- **Bank Management**: Automatic coin management and island automation
 
-## About TPM
+## TPM vs TPM+
 
-TPM is a powerful automation tool for Minecraft servers, built as part of the SkyCofl ecosystem. It helps server administrators automate repetitive tasks, manage resources efficiently, and enhance the overall server experience.
+TPM comes in two versions:
 
-## Features
+- **TPM**: Standard version with full flipping functionality
+- **TPM+**: Premium version with enhanced features and capabilities
 
-⛏️ **Minecraft Automation** - Automate common Minecraft server tasks
-🖥️ **VPS Ready** - Designed to run efficiently on Virtual Private Servers
-🔧 **Flexible Configuration** - Customize TPM to meet your server's needs
-📊 **Resource Management** - Efficient handling of server resources
-🤝 **SkyCofl Integration** - Seamlessly works with other SkyCofl tools
+See the [TPM+ documentation](tpm-plus/overview.md) for more details on the premium version.
 
-## Documentation Structure
+## Getting Started
 
-* **Getting Started** - TPM installation, VPS setup, and quickstart guide
-* **User Guide** - Detailed feature documentation and automation tutorials
-* **Glossary** - Essential Minecraft and TPM terminology
-* **Link Dictionary** - Important resources and links
-* **Resources** - Additional guides and references
-* **Help & Support** - Troubleshooting and community support
+New to TPM? Start here:
 
-## Contributing
+1. [Prerequisites](getting-started/prerequisites.md) - What you need before using TPM
+2. [Installation](getting-started/installation.md) - How to set up TPM
+3. [Quickstart Guide](getting-started/quickstart.md) - Get flipping quickly
 
-We welcome contributions to improve TPM documentation! See our [Contributing Guide](CONTRIBUTING.md) to get started.
+## Configuration
 
-## Community
+TPM uses configs that can be loaded through the Cofl net panel (sky.coflnet.com/flipper). Configs can be:
+- **Free**: Community or basic configurations
+- **Paid**: Premium configs optimized for specific strategies
 
-Join the SkyCofl community to get help, share experiences, and contribute to TPM development.
+Learn more about:
+- [Config Structure](configuration/config-structure.md)
+- [Filters and Settings](configuration/filters-and-settings.md)
+- [Cofl Commands](configuration/cofl-commands.md)
 
-## License
+## Guides
 
-TPM is part of the SkyCofl project. See the LICENSE file for details.
+Step-by-step guides for common tasks:
+- [Loading Configs](guides/loading-configs.md)
+- [Manual Pricing](guides/manual-pricing.md)
+- [Handling Bad Flips](guides/handling-bad-flips.md)
+
+## Advanced Topics
+
+For advanced users:
+- [VPS Setup](advanced/vps-setup.md)
+- [Multiple Accounts](advanced/multiple-accounts.md)
+- [Auto-Rotation](advanced/auto-rotation.md)
+
+## Need Help?
+
+- Check the [Troubleshooting](troubleshooting/common-issues.md) section for common issues
+- Contact TPM support through Discord
+
+## Important Notes
+
+- TPM is officially partnered with SkyCofl
+- Always use configs from trusted sources
+- Monitor your bot regularly to ensure proper operation
+- Follow Hypixel's rules and guidelines when using automation tools

@@ -1,254 +1,186 @@
----
-description: Get up and running quickly with TPM and start automating your Minecraft server
-icon: bolt
----
+# Quickstart Guide
 
-# Quickstart
+Get up and running with TPM quickly with this step-by-step guide.
 
-Welcome to TPM! This quickstart guide will help you install and configure TPM to start automating your Minecraft server tasks.
+## Before You Begin
 
-### Prerequisites
+Make sure you have:
+- TPM installed and configured (see [Installation](installation.md))
+- A Coflnet account with Premium or Premium+
+- A config to use (free or paid)
+- At least 10-50M coins in your purse
 
-Before you begin, make sure you have:
+## Step 1: Load Your Config
 
-* A VPS or server running Ubuntu 20.04+ or similar Linux distribution ([VPS Setup Guide](vps-setup.md))
-* Java 17 or higher installed
-* Access to a Minecraft server (or server details for connection)
-* Basic knowledge of command-line tools
-* SSH access to your server
+After purchasing or obtaining a config, load it in-game:
 
-{% hint style="info" %}
-**New to VPS?** Check out our comprehensive [VPS Setup Guide](vps-setup.md) first to get your server ready for TPM.
-{% endhint %}
+```
+/cofl loadconfig [config-name] [config-name]
+```
 
-### Installation
+For example, if your config is named "stellaconfig":
 
-#### Step 1: Install Java (if not already installed)
+```
+/cofl loadconfig stellaconfig stellaconfig
+```
+
+You should see a confirmation message that the config has been loaded.
+
+## Step 2: Configure Your Settings
+
+Set your minimum profit and profit percentage thresholds using Cofl commands:
+
+### Set Minimum Profit
+
+```
+/cofl set minprofit 4.9m
+```
+
+This ensures TPM only buys items with at least 4.9 million coins profit. Adjust this based on your strategy.
+
+### Set Minimum Profit Percentage
+
+```
+/cofl set minprofitpercent 6
+```
+
+This ensures TPM only buys items with at least 6% profit margin. This is especially important if you have a low purse.
+
+### Other Useful Commands
+
+```
+/cofl set maxprice 100m        # Maximum price to pay for an item
+/cofl set autofast true        # Automatically claim flips
+/cofl set bedspam true         # Enable bed spamming
+```
+
+For more commands, see the [Cofl Commands](../configuration/cofl-commands.md) documentation.
+
+## Step 3: Start TPM
+
+If TPM isn't already running, start it:
 
 ```bash
-# Update package lists
-sudo apt update
-
-# Install Java 17
-sudo apt install openjdk-17-jdk -y
-
-# Verify installation
-java -version
+node index.js
 ```
 
-#### Step 2: Download TPM
+You should see:
+1. Bot connecting to Minecraft
+2. Joining Hypixel
+3. Connecting to Coflnet WebSocket
+4. Ready to receive flips
 
-```bash
-# Create TPM directory
-mkdir -p ~/tpm
-cd ~/tpm
+## Step 4: Monitor Your Bot
 
-# Download the latest TPM release
-# Replace with actual download URL from SkyCofl
-wget https://github.com/skycofl/tpm/releases/latest/download/tpm.jar
+### Discord Notifications
 
-# Verify the download
-ls -lh tpm.jar
+If you configured a webhook, you'll receive Discord notifications for:
+- Bot startup/shutdown
+- Purchases made
+- Items sold
+- Profits earned
+- Errors or issues
+
+### In-Game Monitoring
+
+You can also monitor directly in Minecraft:
+- Watch chat for flip notifications
+- Check your purse balance
+- View your auction house listings
+
+### Console Output
+
+The console will show:
+- Flip opportunities received
+- Actions taken (buy/skip)
+- Errors or warnings
+- Connection status
+
+## Step 5: Your First Flips
+
+Once TPM is running:
+
+1. **Wait for flips**: Coflnet will send flip opportunities that match your config
+2. **Automatic purchase**: TPM will automatically buy items that meet your criteria
+3. **Automatic listing**: Items are automatically listed on the auction house
+4. **Automatic relisting**: If items don't sell, they're relisted with adjusted pricing
+
+You don't need to do anything - TPM handles it all!
+
+## Understanding the Workflow
+
+Here's what happens for each flip:
+
+```
+Coflnet sends flip → TPM evaluates → Meets criteria? → Buy item → List on AH → Monitor → Relist if needed → Item sells → Profit!
 ```
 
-{% hint style="warning" %}
-**Note**: Replace the download URL with the actual TPM download link from the official SkyCofl repository.
-{% endhint %}
+## Tips for New Users
 
-#### Step 3: Create Configuration File
+### Start Conservative
 
-Create a basic configuration file for TPM:
+- Use higher minimum profit thresholds initially
+- Monitor closely for the first few hours
+- Adjust settings based on results
 
-```bash
-# Create config directory
-mkdir -p ~/tpm/config
+### Watch for Bad Flips
 
-# Create configuration file
-nano ~/tpm/config/config.yml
-```
+If TPM buys an item that's hard to sell:
+1. Note the item name
+2. Check the price using `/cofl lore` (see [Manual Pricing](../guides/manual-pricing.md))
+3. Report to your config provider so they can fix it
 
-Add your basic configuration:
+### Optimize Your Config
 
-```yaml
-# TPM Configuration File
-server:
-  # Your Minecraft server details
-  host: "mc.example.com"
-  port: 25565
-  
-automation:
-  # Enable automation features
-  enabled: true
-  
-  # Automation check interval (in seconds)
-  interval: 60
-  
-logging:
-  # Log level: DEBUG, INFO, WARN, ERROR
-  level: INFO
-  
-  # Log file location
-  file: logs/tpm.log
-```
+After running for a while:
+- Review your profit margins
+- Adjust min profit and percentage
+- Fine-tune item filters
+- Consider upgrading to a paid config
 
-Save and exit (Ctrl+X, then Y, then Enter).
+## Common First-Time Issues
 
-### Quick Setup
+### No Flips Coming In
 
-#### 1. Test TPM Installation
+**Solutions:**
+- Verify your Coflnet subscription is active
+- Check your config is loaded: `/cofl status`
+- Ensure your minprofit isn't too high
+- Verify bot is connected to Coflnet
 
-Run TPM to verify it's working:
+### Bot Keeps Disconnecting
 
-```bash
-cd ~/tpm
-java -jar tpm.jar --version
-```
+**Solutions:**
+- Check your internet connection
+- Verify Minecraft account credentials
+- Ensure VPS has enough resources
+- Check Hypixel isn't experiencing issues
 
-You should see TPM's version information.
+### Items Not Selling
 
-#### 2. Run TPM for the First Time
+**Solutions:**
+- Your config might need adjustment
+- Market conditions may have changed
+- Use `/cofl lore` to check current prices
+- Contact your config provider
 
-```bash
-java -jar tpm.jar
-```
+See the [Troubleshooting Guide](../troubleshooting/common-issues.md) for more solutions.
 
-TPM will start and display its initialization process. Watch for any errors in the output.
+## Next Steps
 
-#### 3. Run TPM in Background (Screen)
+Now that you're up and running:
 
-For continuous operation, use screen:
+1. **Learn about configs**: Read the [Config Structure](../configuration/config-structure.md) guide
+2. **Master pricing**: Check out [Manual Pricing](../guides/manual-pricing.md)
+3. **Advanced features**: Explore [Auto-Rotation](../advanced/auto-rotation.md) and [Multiple Accounts](../advanced/multiple-accounts.md)
+4. **Optimize**: Fine-tune your [Filters and Settings](../configuration/filters-and-settings.md)
 
-```bash
-# Start a new screen session
-screen -S tpm
+## Getting Help
 
-# Run TPM
-cd ~/tpm
-java -jar tpm.jar
+Need assistance?
+- Join the TPM Discord server
+- Contact your config provider
+- Check the [Troubleshooting Guide](../troubleshooting/common-issues.md)
+- Review the [full documentation](../README.md)
 
-# Detach from screen: Press Ctrl+A, then D
-```
-
-To return to the TPM session:
-
-```bash
-screen -r tpm
-```
-
-#### 4. Verify TPM is Running
-
-Check that TPM is active and connected:
-
-```bash
-# View logs
-tail -f ~/tpm/logs/tpm.log
-
-# Check process
-ps aux | grep tpm
-```
-
-### Basic Commands
-
-Common TPM commands to get started:
-
-```bash
-# Start TPM
-java -jar tpm.jar
-
-# Start with custom config location
-java -jar tpm.jar --config /path/to/config.yml
-
-# Run in debug mode
-java -jar tpm.jar --debug
-
-# Check version
-java -jar tpm.jar --version
-
-# Display help
-java -jar tpm.jar --help
-```
-
-### Next Steps
-
-Now that you have TPM up and running, explore these features:
-
-* [Configure Automation Features](../creating-content/formatting/) - Set up automated tasks
-* [Understand TPM Terminology](../resources/glossary.md) - Learn key concepts
-* [Explore Advanced Configuration](../creating-content/blocks/) - Customize TPM behavior
-* [Browse Link Dictionary](../resources/link-dictionary.md) - Access important resources
-
-### Common First Tasks
-
-#### Enable Specific Automation Modules
-
-Edit your config file to enable specific features:
-
-```yaml
-automation:
-  enabled: true
-  modules:
-    - resource_gathering
-    - inventory_management
-    - auto_crafting
-```
-
-#### Connect to Minecraft Server
-
-Ensure your Minecraft server details are correct in the config:
-
-```yaml
-server:
-  host: "your-server.com"
-  port: 25565
-  username: "TPMBot"  # If authentication is needed
-```
-
-#### Set Up Logging
-
-Configure detailed logging for troubleshooting:
-
-```yaml
-logging:
-  level: DEBUG
-  file: logs/tpm.log
-  console: true
-  rotate: true
-  max_size: 10MB
-```
-
-### Getting Help
-
-If you run into any issues:
-
-* Check our [VPS Setup Guide](vps-setup.md) for server-related issues
-* Review the [Troubleshooting Guide](git-sync/troubleshooting.md) for common problems
-* Visit the [Glossary](../resources/glossary.md) to understand TPM terminology
-* Check the [Link Dictionary](../resources/link-dictionary.md) for helpful resources
-* Join the SkyCofl community forum
-* [Contact support](../help/)
-
-{% hint style="success" %}
-**Ready to dive deeper?** Check out our [comprehensive user guide](../creating-content/formatting/) for detailed information on all TPM automation features.
-{% endhint %}
-
-## Troubleshooting
-
-### TPM Won't Start
-
-* Verify Java is installed: `java -version`
-* Check configuration file syntax
-* Review log files for errors: `cat ~/tpm/logs/tpm.log`
-
-### Can't Connect to Minecraft Server
-
-* Verify server address and port in config.yml
-* Check network connectivity: `ping your-server.com`
-* Ensure firewall allows outbound connections
-
-### Permission Errors
-
-* Check file permissions: `ls -l ~/tpm/`
-* Ensure TPM has write access to logs directory
-* Run with appropriate user privileges
-
-For more detailed troubleshooting, see our [Help & Support](../help/) section.
+Happy flipping!
