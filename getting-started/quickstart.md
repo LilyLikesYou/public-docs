@@ -8,7 +8,7 @@ Make sure you have:
 - TPM installed and configured (see [Installation](installation.md))
 - A Coflnet account with Premium or Premium+
 - A config to use (free or paid)
-- At least 10-50M coins in your purse
+- At least 50M coins in your purse
 
 ## Step 1: Load Your Config
 
@@ -50,9 +50,6 @@ This ensures TPM only buys items with at least 6% profit margin. This is especia
 
 ```
 /cofl set maxprice 100m        # Maximum price to pay for an item
-/cofl set autofast true        # Automatically claim flips
-/cofl set bedspam true         # Enable bed spamming
-```
 
 For more commands, see the [Cofl Commands](../configuration/cofl-commands.md) documentation.
 
