@@ -1,7 +1,5 @@
 # Handling Bad Flips
 
-What to do when TPM buys an item that's hard to sell or not profitable. This guide helps you identify, handle, and prevent bad flips.
-
 ## What is a Bad Flip?
 
 A bad flip is when TPM purchases an item that:
@@ -194,7 +192,7 @@ Understanding why helps prevent future bad flips.
 
 **Solution:**
 - Config provider updates data
-- Temporary blacklist item
+- Temporary item blacklist
 - Wait for data refresh
 
 #### 2. Low Volume Item
@@ -288,150 +286,12 @@ Check bot regularly:
 - Pay for quality if needed
 - Test configs carefully
 
-### 5. Start Conservative
 
-When testing new configs:
-
-```
-/cofl set minprofit 10m
-/cofl set minprofitpercent 10
-```
-
-Gradually lower thresholds after confirming quality.
-
-## Managing Multiple Bad Flips
-
-If you have several bad flips:
-
-### Step 1: Triage
-
-Categorize items:
-
-**Category A** - Small loss (< 1M)
-- List competitively
-- Sell quickly
-
-**Category B** - Medium loss (1-5M)
-- Price carefully
-- Wait up to 1 week
-
-**Category C** - Large loss (> 5M)
-- Evaluate carefully
-- Consider long-term hold or cut losses
-
-### Step 2: Prioritize Sales
-
-Focus on:
-1. Items losing value fast
-2. High-value items (free up coins)
-3. Items with decent demand
-
-### Step 3: Batch Report
-
-Send comprehensive report to config provider:
-
-```
-Bad flips batch report:
-
-1. Item A - paid 18M, median 15M
-2. Item B - paid 45M, median 40M
-3. Item C - paid 22M, low volume
-
-Please review and update filters.
-```
-
-### Step 4: Adjust Strategy
-
-If consistent bad flips:
+**If flips are consistently low quality:**
 - Raise profit thresholds
-- Reduce max price
 - Switch configs
 - Pause flipping temporarily
 
-## Learning from Bad Flips
-
-### Keep Records
-
-Document bad flips:
-
-```
-Date: [Date]
-Item: [Name]
-Paid: [Amount]
-Sold: [Amount]
-Loss: [Amount]
-Lesson: [What you learned]
-```
-
-### Identify Patterns
-
-Look for:
-- Common item types
-- Specific finders
-- Time of day
-- Price ranges
-
-### Adjust Accordingly
-
-Based on patterns:
-- Blacklist item types
-- Avoid certain finders
-- Adjust during certain times
-- Change price ranges
-
-## Bad Flip Examples
-
-### Example 1: Minor Bad Flip
-
-```
-Item: Shadow Assassin Chestplate
-Paid: 12M
-Median: 11.5M
-Volume: 80 sales
-
-Action:
-- Listed at 11.3M
-- Sold in 18 hours
-- Loss: 700k
-- Not significant, monitor item
-
-Result: Acceptable
-```
-
-### Example 2: Moderate Bad Flip
-
-```
-Item: Special Pet (Rare)
-Paid: 35M
-Median: 30M
-Volume: 12 sales
-
-Action:
-- Blacklisted item
-- Listed at 29M
-- Sold in 3 days
-- Loss: 6M
-- Reported to config provider
-
-Result: Learning experience
-```
-
-### Example 3: Severe Bad Flip
-
-```
-Item: Expensive Weapon
-Paid: 150M
-Median: 120M
-Volume: 3 sales
-
-Action:
-- Immediately blacklisted
-- Reported to provider
-- Holding for market recovery
-- Temporarily increased min profit
-
-Result: Reevaluating config
-```
 
 ## When to Switch Configs
 
@@ -441,53 +301,6 @@ Consider switching if:
 - Config not updated
 - Better options available
 - Strategy doesn't match goals
-
-## Recovery Tips
-
-### Mental Approach
-
-- Don't let bad flips discourage you
-- Everyone has losses
-- Focus on overall profit
-- Learn and improve
-
-### Financial Recovery
-
-- Review and adjust filters
-- Focus on safer flips temporarily
-- Rebuild confidence with smaller flips
-- Track recovery progress
-
-## Quick Reference
-
-### Immediate Actions Checklist
-
-- [ ] Check current price with `/cofl lore`
-- [ ] Blacklist item: `/cofl blacklist add "Item"`
-- [ ] List item competitively
-- [ ] Report to config provider
-- [ ] Document for records
-- [ ] Adjust filters if needed
-
-### Reporting Template
-
-```
-Item: [Name]
-Paid: [Amount]
-Median: [Amount]
-Volume: [Number]
-Issue: [Description]
-Request: Please update config filter
-```
-
-### Prevention Checklist
-
-- [ ] Proper min profit set
-- [ ] Appropriate min profit percent
-- [ ] Reasonable max price
-- [ ] Active blacklist maintained
-- [ ] Regular monitoring
-- [ ] Quality config in use
 
 ## Next Steps
 
@@ -502,6 +315,5 @@ Request: Please update config filter
 1. Handle them quickly
 2. Learn from them
 3. Prevent repeats
-4. Don't let them discourage you
 
 With proper management, bad flips should be rare and minimal losses!
