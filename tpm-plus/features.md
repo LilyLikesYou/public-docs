@@ -55,8 +55,17 @@ These features may be exclusive to TPM+:
 - Better error handling
 - Connection optimization
 
+### Cons:
+- You have no control over your own vps
+- 5100 cofl coins for a month of tpm+
+- Your own vps is cheaper and better
+- Baf pricing does not show profit until sold (have to check cofl website after sold)
+- Delisting an item through command or button with tpm+ will cause baf pricing to instantly list it causing profit loss
+- If you try and list an item with a skin after it doesn’t auto list, your webhook get get spammed with a failed to list message"
 
 ---
 
 **Remember**: TPM+ is designed for serious flippers who want the best performance and features. Make sure you're using all available features to maximize your investment! 
 TPM+ is **not a requirement** to reach high profit leaderboard positions.
+
+**BAF PRICING IS OBSOLETE IF YOU SETUP COFL AND TPM CONFIG CORRECTLY/BETTER**
