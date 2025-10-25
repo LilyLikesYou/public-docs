@@ -21,7 +21,9 @@ Troubleshooting guide for common TPM problems and their solutions.
 - Connection timeout errors
 - Repeated disconnects
 
-**Solutions:**
+### **Solutions:**
+
+**To delete authentication cache, type `sudo rm -rf /root/.minecraft/`**
 
 1. **Check Minecraft Account**
    ```bash
@@ -29,7 +31,6 @@ Troubleshooting guide for common TPM problems and their solutions.
    nano config.js
    ```
    - Ensure igns array has correct username/token
-   - Verify session password is correct
 
 2. **Check Internet Connection**
    ```bash
@@ -43,15 +44,9 @@ Troubleshooting guide for common TPM problems and their solutions.
    - Visit hypixel.net/status
    - Wait and retry if server issues
 
-4. **Rate Limiting**
-   - Too many connection attempts
-   - Wait 5-10 minutes
-   - Increase delay in config
-
 ### Bot Disconnects from Coflnet
 
 **Symptoms:**
-- "Disconnected from Coflnet" messages
 - No flip notifications
 - WebSocket errors
 
@@ -62,23 +57,14 @@ Troubleshooting guide for common TPM problems and their solutions.
    - Verify service is online
    - Check for maintenance announcements
 
-2. **Verify Session Password**
-   ```javascript
-   session: "your-correct-coflnet-password"
-   ```
-   - Must match your Coflnet account password
-   - Case-sensitive
-
-3. **Check Subscription**
+2. **Check Subscription**
    - Verify Cofl Premium/Premium+ is active
    - In-game: `/cofl premium`
    - Renew if expired
 
-4. **Restart Bot**
+3. **Restart Bot**
    ```bash
-   # Stop and restart TPM
-   screen -X -S tpm quit
-   screen -S tpm
+   // End bot
    node index.js
    ```
 
@@ -103,7 +89,6 @@ Troubleshooting guide for common TPM problems and their solutions.
    ping -c 100 hypixel.net
    ```
    - High packet loss? Contact VPS provider
-   - Try different VPS location
 
 3. **Reduce Load**
    - Decrease number of accounts
@@ -117,40 +102,30 @@ Troubleshooting guide for common TPM problems and their solutions.
 **Symptoms:**
 - Bot connected but no flip notifications
 - `/cofl` commands work but no flips
-- Long periods with no activity
+- Long periods with no activity (1h+)
 
 **Solutions:**
 
-1. **Check Config Loaded**
-   ```
-   /cofl status
-   ```
-   - Should show active config name
+1. **Check if Config is loading**
+   - Should show active config name every 3-5 minutes
    - If not, reload: `/cofl loadconfig [name] [name]`
 
 2. **Check Profit Thresholds**
    ```
-   /cofl set minprofit 3m
-   /cofl set minprofitpercent 4
+   /cofl set minprofit 4.2m
+   /cofl set minprofitpercent 7
    ```
    - Thresholds may be too high
    - Lower gradually and monitor
 
 3. **Verify Cofl Subscription**
    ```
-   /cofl premium
+   /cofl licenses
    ```
    - Must have active Premium or Premium+
    - Renew if expired
 
-4. **Check Blacklist**
-   ```
-   /cofl blacklist list
-   ```
-   - May have blacklisted too many items
-   - Remove unnecessary items
-
-5. **Market Conditions**
+4. **Market Conditions**
    - Some periods have fewer flips
    - Peak hours: 3-8 PM EST
    - Wait 15-30 minutes
@@ -158,32 +133,19 @@ Troubleshooting guide for common TPM problems and their solutions.
 ### Bot Ignoring Flips
 
 **Symptoms:**
+
 - Flip notifications appear
 - Bot doesn't attempt to buy
-- Skips all flips
 
 **Solutions:**
 
-1. **Check Filters**
-   ```
-   /cofl status
-   ```
-   - Review active filters
-   - May be too restrictive
-
-2. **Enable Auto-Fast**
-   ```
-   /cofl set autofast true
-   ```
-   - Enables automatic purchasing
-
-3. **Check Purse**
+1. **Check Purse**
    - Ensure sufficient coins
    - Bot skips if can't afford
 
-4. **Config Issues**
-   - Review skip settings in config.js
-   - May have too many skip conditions
+2. **TPM Config Issues**
+   - Review skip settings in config.json5
+   - May have too narrow skip conditions
 
 ### Bot Buys Wrong Items
 
@@ -196,43 +158,35 @@ Troubleshooting guide for common TPM problems and their solutions.
 
 1. **Adjust Filters**
    ```
-   /cofl set minprofit 5m
+   /cofl set minprofit 4.2m
    /cofl set minprofitpercent 7
    ```
 
-2. **Blacklist Items**
-   ```
-   /cofl blacklist add "Item Name"
-   ```
-
-3. **Contact Config Provider**
+2. **Contact Config Provider**
    - Report bad items
    - Request config update
    - See [Handling Bad Flips](../guides/handling-bad-flips.md)
 
 ## Authentication Problems
 
-### Invalid Session Error
+**To delete authentication cache, type `sudo rm -rf /root/.minecraft/`**
+
+### No login
 
 **Symptoms:**
-- "Invalid session" error
+
 - Can't connect to Minecraft
 - Authentication fails
 
 **Solutions:**
 
 1. **Verify Account Credentials**
-   - Check username/token in config.js
+   - Check username/token in config.json5
    - For Microsoft accounts, ensure correct email
 
-2. **Token Expired** (if using tokens)
-   - Generate new authentication token
-   - Update config.js with new token
-
-3. **Account Locked**
+2. **Account Locked**
    - Check if Minecraft account is locked
-   - Verify on minecraft.net
-   - Unlock if necessary
+   - Verify on microsoft.com
 
 ### Microsoft Authentication Issues
 
@@ -244,15 +198,11 @@ Troubleshooting guide for common TPM problems and their solutions.
 **Solutions:**
 
 1. **Use Correct Format**
-   ```javascript
-   igns: ["username"]  // Not email if < 16 chars
+   ```json
+   igns: ["username"]
    ```
 
-2. **Check Account Type**
-   - Ensure account migrated to Microsoft
-   - Verify can log into minecraft.net
-
-3. **Browser Auth**
+2. **Browser Auth**
    - May need to auth in browser first
    - Follow prompts if they appear
 
@@ -276,8 +226,7 @@ Troubleshooting guide for common TPM problems and their solutions.
 
 2. **Restart Bot**
    ```bash
-   screen -X -S tpm quit
-   screen -S tpm
+   // Quit bot
    node index.js
    ```
 
@@ -321,27 +270,13 @@ Troubleshooting guide for common TPM problems and their solutions.
 **Solutions:**
 
 1. **Reduce Delay**
-   ```javascript
-   delay: 200  // Lower is faster (but risky)
+   ```json
+   delay: 200  // Lower is faster
    ```
 
-2. **Enable Bed Spam**
-   ```javascript
-   bedSpam: true
-   clickDelay: 100
-   ```
-
-3. **Better VPS Location**
+2. **Better VPS Location**
    - Choose VPS closer to Hypixel servers
-   - US East recommended
-
-4. **Lower Ping**
-   ```bash
-   ping hypixel.net
-   ```
-   - < 50ms excellent
-   - 50-100ms good
-   - > 100ms may miss flips
+   - Chicago recommended
 
 ## Config Issues
 
@@ -356,7 +291,7 @@ Troubleshooting guide for common TPM problems and their solutions.
 
 1. **Check Config Name**
    ```
-   /cofl loadconfig configname configname
+   /cofl loadconfig configmaker-name configname
    ```
    - Verify exact spelling
    - Names are case-sensitive
@@ -369,20 +304,17 @@ Troubleshooting guide for common TPM problems and their solutions.
    - Must be connected to Coflnet
    - Restart and try again
 
-### Config Syntax Errors
+### TPM Config Syntax Errors
 
 **Symptoms:**
 - Bot won't start
 - Syntax error messages
-- Config.js errors
+- Config.json5 errors
 
 **Solutions:**
 
 1. **Check Syntax**
-   ```bash
-   node -c config.js
-   ```
-   - Shows syntax errors
+   - Open config.json5
    - Fix any issues
 
 2. **Common Mistakes**
@@ -390,11 +322,6 @@ Troubleshooting guide for common TPM problems and their solutions.
    - Mismatched brackets
    - Incorrect quotes
    - Missing colons
-
-3. **Use Example Config**
-   - Start from working example
-   - Add settings gradually
-   - Test after each change
 
 ### Settings Not Applying
 
@@ -414,7 +341,7 @@ Troubleshooting guide for common TPM problems and their solutions.
    - Check file modification time
 
 3. **Wrong File**
-   - Editing correct config.js?
+   - Editing correct config.json5?
    - Check file path
 
 ## Webhook/Discord Issues
@@ -429,11 +356,10 @@ Troubleshooting guide for common TPM problems and their solutions.
 **Solutions:**
 
 1. **Check Webhook URL**
-   ```javascript
+   ```json
    webhook: "https://discord.com/api/webhooks/..."
    ```
    - Must be complete URL
-   - Test in browser
 
 2. **Verify Permissions**
    - Webhook must have send permissions
@@ -460,7 +386,7 @@ Troubleshooting guide for common TPM problems and their solutions.
 **Solutions:**
 
 1. **Check Format String**
-   ```javascript
+   ```json
    webhookFormat: "Item: {itemName}, Profit: {profit}"
    ```
    - Verify placeholder syntax
@@ -531,7 +457,7 @@ Troubleshooting guide for common TPM problems and their solutions.
 ### Step 1: Check Basics
 
 - Bot process running?
-- Config.js correct?
+- Config.json5 correct?
 - Internet working?
 - All services up?
 
@@ -581,12 +507,8 @@ sudo reboot
 | Error | Cause | Solution |
 |-------|-------|----------|
 | "ECONNREFUSED" | Can't connect to server | Check internet, server status |
-| "Invalid credentials" | Wrong username/password | Verify config.js credentials |
+| "Invalid credentials" | Wrong username/password | Verify config.json5 credentials |
 | "Out of memory" | Insufficient RAM | Restart bot, upgrade VPS |
-| "Config not found" | Wrong config name | Check spelling, verify access |
-| "Session invalid" | Cofl session wrong | Update session password |
-| "Rate limited" | Too many requests | Wait, increase delay |
-| "Webhook failed" | Bad webhook URL | Verify webhook URL |
 
 ## Prevention Tips
 
@@ -601,10 +523,10 @@ sudo reboot
 
 ```bash
 # Backup config
-cp config.js config.backup.js
+cp config.json5 config.backup.json5
 
 # Backup to local machine
-scp user@vps:~/tpm/config.js ./
+scp user@vps:~/tpm/config.json5 ./
 ```
 
 ### 3. Monitoring
@@ -652,7 +574,7 @@ When something goes wrong, try these in order:
 
 - [ ] Check if bot process is running
 - [ ] Review console/logs for errors
-- [ ] Verify config.js syntax
+- [ ] Verify config.json5 syntax
 - [ ] Check internet connection
 - [ ] Restart TPM
 - [ ] Check Coflnet status
