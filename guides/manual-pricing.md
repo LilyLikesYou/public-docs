@@ -9,7 +9,6 @@ You'll need to manually price items when:
 - Item failed to sell multiple times
 - Market price changed significantly
 - Unusual or rare item variation
-- Need to verify bot's pricing
 
 ## Using Cofl Lore
 
@@ -38,15 +37,9 @@ The median price is the **best indicator** of what an item is currently worth.
 
 **Why Median is Best:**
 - Removes outliers (very high/low sales)
-- Represents true market value
+- Represents true market value (often, can still be wrong)
 - More stable than other metrics
-- What most buyers expect to pay
-
-**Example:**
-```
-Median: 15.5M
-```
-This means most items sell around 15.5M coins.
+- What most buyers expect to pa
 
 #### BIN (Buy It Now) Price
 
@@ -57,11 +50,6 @@ Recent prices for items sold with "Buy It Now".
 - Can be inflated
 - Less reliable than median
 - Good for trend checking
-
-**Example:**
-```
-BIN: 16.2M
-```
 
 **Note**: BIN is often higher than actual value!
 
@@ -75,21 +63,16 @@ Cofl's algorithm estimate of item worth.
 - Usually accurate
 - Only shows up sometimes
 
-**Example:**
-```
-Finder Estimate: 15.8M
-```
-
 #### Volume
 
 Number of recent sales.
 
-**High Volume** (50+ sales):
+**High Volume** (5+ sales):
 - More reliable data
 - Easier to sell
 - Price is stable
 
-**Low Volume** (< 10 sales):
+**Low Volume** (< 0.5 sales):
 - Less reliable data
 - Harder to sell
 - Price varies more
@@ -104,7 +87,7 @@ Number of recent sales.
 Median: 15.5M
 BIN: 16.2M
 Finder Estimate: 15.8M
-Volume: 45 sales
+Volume: 4 sales
 ```
 
 **Step 2**: Prioritize median
@@ -120,13 +103,13 @@ Volume: 45 sales
 
 **For items with good volume:**
 ```
-List at: Median * 0.95 to Median * 1.00
+List at: Median * 0.95 to Median
 ```
 
 **Example:**
 ```
 Median: 15.5M
-List at: 14.7M - 15.5M
+List at: 14.7M to 15.5M
 ```
 
 **For items with low volume:**
@@ -136,47 +119,9 @@ List at: Median * 0.90 to Median * 0.95
 
 More aggressive pricing helps items sell faster.
 
-## Alternative Pricing Methods
+**Note: Median may be inaccurate for determing items which have a very low volume.**
 
-### SkyBlock Menu (/ah)
-
-Use the auction house directly.
-
-**Step 1**: Open auction house
-```
-/ah
-```
-
-**Step 2**: Search for your item
-- Type item name in search
-- Look at active listings
-
-**Step 3**: Check current listings
-- What are similar items listed at?
-- Are they selling?
-- How old are the listings?
-
-**Step 4**: Undercut competition
-```
-Lowest listing: 16M
-Your price: 15.8M (slightly lower)
-```
-
-### SkyCrypt / Sky.Shiiyu.Moe
-
-External websites for price checking.
-
-**SkyCrypt**: skycrypt.me
-**Sky.Shiiyu**: sky.shiiyu.moe
-
-**How to use:**
-1. Search your username
-2. View your inventory
-3. Check item value estimates
-
-**Note**: These are estimates, not always accurate.
-
-### Cofl Website
+## Cofl Website
 
 Check prices on the Cofl website.
 
@@ -207,11 +152,6 @@ Check prices on the Cofl website.
 List at: Median * 0.95
 Duration: 24 hours
 ```
-
-**Examples:**
-- Dragon items
-- Popular dungeon gear
-- Common accessories
 
 ### Rare Items (Low Volume)
 
@@ -262,12 +202,12 @@ Pets are complex to price.
 - Rarity (Common to Legendary)
 - Level (especially 100)
 - Candy used
-- Special abilities
+- Skins
 
 **Strategy:**
 1. Check exact pet + level with Cofl lore
 2. Use median price
-3. Adjust for candy (-5% per candy)
+3. Adjust for candy (-3% per candy)
 4. List at 0.92-0.97 of median
 
 ## Listing Your Item
@@ -294,45 +234,16 @@ Pets are complex to price.
 **Starting Bid:**
 - Set 10-20% below BIN
 - Allows bidding wars
-- Good for rare items
+- Good for some items like Runebooks or enchanted Talisman
 
 **Buy It Now (BIN):**
 - Instant sale
 - Set at target price
 - Good for common items
 
-**Recommendation**: Use both
-```
-Starting Bid: 14M
-BIN: 15.5M
-```
-
-### Cookies and Fees
-
-**Without Cookie:**
-- Listing fee: 0 coins
-- Sale fee: 1% of sale price
-
-**With Cookie:**
-- Listing fee: 0 coins
-- Sale fee: 0% (no fee!)
-
 **Always use cookies if available!**
 
 ## Monitoring Your Listings
-
-### Check Regularly
-
-Use in-game menu:
-```
-/ah
-Click "Your Auctions"
-```
-
-**Look for:**
-- Bids received
-- Time remaining
-- Comparison to new listings
 
 ### Adjusting Price
 
@@ -375,59 +286,6 @@ If item not selling:
 **Problem**: Using unreliable data
 **Solution**: Check sales volume, adjust expectations
 
-### Mistake 5: Not Using Cookies
-
-**Problem**: Paying 1% fee on every sale
-**Solution**: Always use booster cookies!
-
-## Example Pricing Scenarios
-
-### Scenario 1: Common Item
-
-```
-Item: Aspect of the End
-/cofl lore results:
-  Median: 10.5M
-  BIN: 11M
-  Volume: 120 sales
-
-Decision:
-  List at: 10.2M (median * 0.97)
-  Duration: 24 hours
-  Expected: Sells within 12 hours
-```
-
-### Scenario 2: Rare Item
-
-```
-Item: Special Pet (Rare Variant)
-/cofl lore results:
-  Median: 50M
-  BIN: 55M
-  Volume: 8 sales
-
-Decision:
-  List at: 46M (median * 0.92)
-  Duration: 72 hours
-  Expected: May take 2-3 days to sell
-```
-
-### Scenario 3: Market Drop
-
-```
-Item: Popular Sword
-/cofl lore results:
-  Median: 20M (was 25M yesterday)
-  BIN: 18M
-  Volume: 200 sales
-
-Analysis: Price is dropping!
-Decision:
-  List at: 18.5M (between BIN and median)
-  Duration: 24 hours
-  Expected: Sell quickly before more drops
-```
-
 ## When to Report Bad Flips
 
 If you consistently need to manually price items, it may indicate a config issue.
@@ -446,6 +304,7 @@ Paid: [Amount]
 Median: [Amount]
 Can't sell, please fix filter"
 ```
+**Or forward the webhook message to then.**
 
 See [Handling Bad Flips](handling-bad-flips.md) for more details.
 
@@ -455,23 +314,12 @@ See [Handling Bad Flips](handling-bad-flips.md) for more details.
 2. **Median > BIN** - Median is more accurate
 3. **Check volume** - More sales = more reliable
 4. **List competitively** - 90-95% of median
-5. **Use cookies** - Save 1% on every sale
-6. **Be patient** - Wait 24 hours before panicking
-7. **Monitor regularly** - Check listings daily
-8. **Learn from experience** - Note what prices work
-9. **Adjust for market** - Prices change over time
-10. **Report issues** - Help improve your config
+5. **Be patient** - Wait 24 hours before relisting
+6. **Learn from experience** - Note what prices work
+7. **Adjust for market** - Prices change over time
+8. **Report issues** - Help improve your config
 
 ## Quick Reference
-
-### Command Cheat Sheet
-
-```
-/cofl lore          # Price checking tool
-/ah                 # View auction house
-/cofl status        # Check bot status
-/cofl blacklist add # Block problematic items
-```
 
 ### Pricing Formula
 
