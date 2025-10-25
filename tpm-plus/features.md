@@ -67,4 +67,5 @@ These features may be exclusive to TPM+:
 
 **Remember**: TPM+ is designed for serious flippers who want the best performance and features. Make sure you're using all available features to maximize your investment! 
 TPM+ is **not a requirement** to reach high profit leaderboard positions.
+
 **BAF PRICING IS OBSOLETE IF YOU SETUP COFL AND TPM CONFIG CORRECTLY/BETTER**
