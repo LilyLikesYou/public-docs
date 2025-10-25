@@ -80,8 +80,8 @@ Adjust based on:
 
 You can also set config parameters in your `config.json5` file:
 
-```javascript
-module.exports = {
+```json
+{
     igns: ["YourAccount"],
     session: "your-coflnet-password", // filled automatically 
 
