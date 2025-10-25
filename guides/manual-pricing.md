@@ -1,5 +1,7 @@
 # Manual Pricing
 
+Budda Dog is the goat at manual pricing btw
+
 Sometimes TPM buys too many items and you need to manually determine their value and auction them. This guide teaches you how to use Cofl lore and other tools to price items correctly.
 
 ## When You Need Manual Pricing
