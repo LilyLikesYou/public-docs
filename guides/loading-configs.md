@@ -4,7 +4,7 @@ This guide explains how to obtain, load, and manage configs for TPM.
 
 ## What is a Config?
 
-A config is a set of predefined rules and filters that determine what items TPM will buy and how it will handle them. Configs are created by experienced flippers and optimized for specific strategies.
+A config is a set of predefined rules and filters that determine what items TPM will buy and how it will handle them. Configs are created by experienced flippers and optimized for the most profitable strategies.
 
 ## Types of Configs
 
@@ -21,16 +21,16 @@ A config is a set of predefined rules and filters that determine what items TPM 
 - Optimized for maximum profit
 - Regular updates and support
 - Usually include custom filters and strategies
-- Examples mentioned by user: "stellaconfig"
 
 ## Getting a Config
 
 ### Step 1: Obtain Config Access
 
 **For Paid Configs:**
-1. Purchase from config provider
-2. You'll receive a config name/key
+1. Open in a ticket in [config hub](https://discord.gg/cfghub/) for your chosen config
+2. Provide payment via one of their accepted methods (usually crypto, paypal f&f)
 3. Provider will add your account to their config
+4. Load the config via a SkyCofl command
 
 **For Free Configs:**
 1. Find config name in community
@@ -39,47 +39,15 @@ A config is a set of predefined rules and filters that determine what items TPM 
 
 ### Step 2: Have Config Name Ready
 
-You'll need the exact config name to load it. Common format:
-- `stellaconfig`
-- `premiumflips`
-- `[creator]config`
+You'll need the exact config name to load it.
 
 ## Loading Your Config
 
-### In-Game Method (Recommended)
-
-The primary way to load a config is through Minecraft using Cofl commands.
+The primary way to load a config is through Minecraft using Cofl commands or via TPM once logged into Cofl.
 
 **Command:**
 ```
-/cofl loadconfig [config-name] [config-name]
-```
-
-**Example:**
-```
-/cofl loadconfig stellaconfig stellaconfig
-```
-
-**Note**: You must type the config name twice!
-
-### Step-by-Step Process
-
-1. **Launch Minecraft** and join Hypixel
-2. **Join SkyBlock** (any game mode)
-3. **Type the command** in chat:
-   ```
-   /cofl loadconfig [your-config] [your-config]
-   ```
-4. **Press Enter**
-5. **Wait for confirmation** message
-6. **Verify** with `/cofl status`
-
-### Confirmation
-
-After loading, you should see:
-```
-Config loaded successfully!
-Active config: [config-name]
+/cofl loadconfig [config-maker] [config-name]
 ```
 
 If you see an error, double-check:
@@ -88,15 +56,18 @@ If you see an error, double-check:
 - Your Cofl subscription is active
 - You're connected to Cofl servers
 
+If none of these work, contact the config provider and ask for help. 
+
 ## Configuring After Loading
 
 After loading a config, customize it to your needs:
 
 ### Set Profit Thresholds
 
+**Example:**
 ```
-/cofl set minprofit 4.9m
-/cofl set minprofitpercent 6
+/cofl set minprofit 4.9m 
+/cofl set minprofitpercent 7
 ```
 
 Adjust based on:
@@ -104,52 +75,31 @@ Adjust based on:
 - Your risk tolerance
 - Market conditions
 
-### Set Price Limits
+  
+## TPM config (config.json5)
 
-```
-/cofl set maxprice 100m
-```
-
-Recommended: 20-30% of your total purse
-
-### Enable Automation
-
-```
-/cofl set autofast true
-/cofl set bedspam true
-```
-
-## Config File Method (TPM Config.js)
-
-You can also set config parameters in your `config.js` file:
+You can also set config parameters in your `config.json5` file:
 
 ```javascript
 module.exports = {
     igns: ["YourAccount"],
-    session: "your-coflnet-password",
+    session: "your-coflnet-password", // filled automatically 
 
     // Config-specific settings
-    delay: 250,
-    bedSpam: true,
-
-    percentOfTarget: {
-        "0-10000000": 0.95,
-        "10000000-999999999": 0.97
-    },
+    delay: 150,
+    bedSpam: false,
 
     // ... other settings
 }
 ```
+
+The command to modify your TPM config is `nano config.json5`
 
 **Note**: File settings apply on bot startup, Cofl commands apply immediately.
 
 ## Verifying Your Config
 
 ### Check Active Config
-
-```
-/cofl status
-```
 
 Look for:
 - **Active config**: Should show your config name
@@ -170,22 +120,10 @@ Look for:
 To switch to a different config:
 
 ```
-/cofl loadconfig [new-config] [new-config]
-```
-
-**Example:**
-```
-/cofl loadconfig newconfig newconfig
+/cofl loadconfig [new-config-maker] [new-config]
 ```
 
 Changes take effect immediately!
-
-### When to Switch
-
-- Different time of day (different markets)
-- Different strategy (aggressive vs conservative)
-- Testing new configs
-- Market conditions change
 
 ## Multiple Accounts
 
@@ -214,14 +152,7 @@ Then load configs separately on each account in-game.
 Most paid configs update automatically:
 - Config creator updates their config
 - Changes apply next time you load it
-- Sometimes requires reloading: `/cofl loadconfig [name] [name]`
-
-### Manual Updates
-
-For file-based settings:
-1. Edit `config.js`
-2. Save the file
-3. Restart TPM: `node index.js`
+- Sometimes requires reloading: `/cofl loadconfig [config-maker] [name]`
 
 ## Common Issues
 
@@ -249,20 +180,19 @@ For file-based settings:
 1. Check internet connection
 2. Verify Cofl subscription: `/cofl premium`
 3. Try again in a few minutes
-4. Restart Minecraft if persistent
+4. Restart TPM if persistent
 
 ### Config loads but no flips
 
 **Causes:**
 - Profit thresholds too high
-- Market is slow
+- Market is slow (off-peak hours)
 - Config filters too restrictive
 
 **Solutions:**
 1. Lower minprofit: `/cofl set minprofit 3m`
-2. Lower percentage: `/cofl set minprofitpercent 5`
-3. Check `/cofl status` for active filters
-4. Wait 10-15 minutes (some periods are slower)
+2. Lower percentage: `/cofl set minprofitpercent 10`
+3. Wait 10-15 minutes (some periods are slower)
 
 ### Wrong items being bought
 
@@ -273,7 +203,7 @@ For file-based settings:
 
 **Solutions:**
 1. Adjust filters: `/cofl set minprofit 7m`
-2. Blacklist bad items: `/cofl blacklist add "Item"`
+2. Blacklist bad items: Visit https://sky.coflnet.com/
 3. Contact config provider for update
 4. Review your profit thresholds
 
@@ -281,10 +211,10 @@ For file-based settings:
 
 ### 1. Start Conservative
 
-When using a new config:
+When using a new config (assuming 500m+ purse): 
 ```
 /cofl loadconfig newconfig newconfig
-/cofl set minprofit 10m
+/cofl set minprofit 4.5m
 /cofl set minprofitpercent 10
 ```
 
@@ -299,26 +229,11 @@ When using a new config:
 
 Keep notes on optimal settings:
 ```
-Config: stellaconfig
-MinProfit: 5m
-MinProfitPercent: 6
-MaxPrice: 100m
-Works best: 3-8 PM EST
+MinProfit: 4.2m
+MinProfitPercent: 8
 ```
 
-### 4. Regular Reviews
-
-- Review weekly
-- Adjust for market changes
-- Update based on results
-- Communicate with config provider
-
-### 5. Backup Configs
-
-Save your `config.js` file regularly:
-```bash
-cp config.js config.backup.js
-```
+### Report bad flips to the creator of your config.
 
 ## Getting Help with Configs
 
@@ -339,7 +254,7 @@ Contact them if:
 ### TPM Support
 
 For TPM-specific issues:
-- Join TPM Discord
+- Join TPM Discord (https://discord.gg/n7t8StBCHr)
 - Check troubleshooting guide
 - Ask in community channels
 
@@ -351,31 +266,3 @@ Now that your config is loaded:
 2. **Learn pricing**: Read [Manual Pricing Guide](manual-pricing.md)
 3. **Handle issues**: Check [Handling Bad Flips](handling-bad-flips.md)
 4. **Optimize**: Review [Filters and Settings](../configuration/filters-and-settings.md)
-
-## Config Example Workflow
-
-Complete workflow for a new config:
-
-```bash
-# 1. In Minecraft
-/cofl loadconfig stellaconfig stellaconfig
-
-# 2. Verify loading
-/cofl status
-
-# 3. Set thresholds
-/cofl set minprofit 5m
-/cofl set minprofitpercent 6
-/cofl set maxprice 100m
-
-# 4. Enable features
-/cofl set autofast true
-/cofl set bedspam true
-
-# 5. Start flipping
-/cofl start
-
-# 6. Monitor and adjust as needed
-```
-
-That's it! Your config is now active and TPM is ready to flip.
