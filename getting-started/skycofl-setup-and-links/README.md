@@ -5,7 +5,7 @@ description: >-
 icon: exclamation
 ---
 
-# Prerequisites and Links
+# SkyCofl Setup and Links
 
 ***
 
@@ -65,9 +65,9 @@ SkyCofl Wiki
 {% endembed %}
 
 {% embed url="https://discord.gg/QRhjWZjY6s" %}
-Config Hub Discord
+Config Hub Discord, used for buying/selling SkyCofl coins and configs
 {% endembed %}
 
 {% embed url="https://discord.gg/nbJm2stTyX" %}
-TPM Discord Server
+TPM Discord Server, for support and community
 {% endembed %}
