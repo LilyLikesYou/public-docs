@@ -21,7 +21,7 @@ All Cofl commands start with `/cofl`:
 Load a config from the Cofl panel.
 
 ```
-/cofl loadconfig [config-name] [config-name]
+/cofl loadconfig [config-maker-name] [config-name]
 ```
 
 **Examples:**
@@ -29,8 +29,6 @@ Load a config from the Cofl panel.
 /cofl loadconfig stellaconfig stellaconfig
 /cofl loadconfig myconfig myconfig
 ```
-
-**Note**: The config name is typically repeated twice.
 
 ### Check Status
 
