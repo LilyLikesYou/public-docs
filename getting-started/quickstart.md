@@ -17,7 +17,6 @@ Example: `/cofl loadconfig stellaconfig stellaconfig`
 ```
 /cofl set minprofit 4.9m           # Min profit per flip
 /cofl set minprofitpercent 6       # Min profit margin %
-/cofl set maxprice 100m            # Max item price (optional)
 ```
 
 See all commands: [Cofl Commands](../configuration/cofl-commands.md)
@@ -48,14 +47,13 @@ Coflnet → TPM evaluates → Buy → List on AH → Relist if needed → Sell �
 
 **Bad Flips:**
 1. Note item name
-2. Check price: `/cofl lore`
+2. Check price: `/cofl lore` (ingame only)
 3. Report to config provider
 
 ## Common Issues
 
 **No flips?**
 - Check subscription active
-- Verify config loaded: `/cofl status`
 - Lower minprofit if too high
 
 **Disconnecting?**
