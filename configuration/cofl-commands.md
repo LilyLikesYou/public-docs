@@ -135,15 +135,7 @@ Shows:
 Display available Cofl commands.
 
 ```
-/cofl help
-```
-
-### Version
-
-Show your Cofl mod version.
-
-```
-/cofl version
+/cofl h c 1 (first page of commands)
 ```
 
 ### Connection Status
@@ -153,47 +145,6 @@ Check connection to Cofl servers.
 ```
 /cofl ping
 ```
-
-## Advanced Commands
-
-### Macro Settings
-
-Configure macro behavior (requires specific permissions).
-
-```
-/cofl macro [setting] [value]
-```
-
-## Useful Command Combinations
-
-### Quick Setup
-
-Set up basic filters quickly:
-
-```
-/cofl set minprofit 5m
-/cofl set minprofitpercent 6
-```
-
-### Conservative Mode
-
-Make TPM more selective:
-
-```
-/cofl set minprofit 10m
-/cofl set minprofitpercent 10
-```
-
-### Aggressive Mode
-
-Maximize flip volume:
-
-```
-/cofl set minprofit 4.2m
-/cofl set minprofitpercent 6
-```
-
-## Command Tips
 
 ### Use Tab Completion
 
