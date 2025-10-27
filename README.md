@@ -1,81 +1,73 @@
 ---
-description: 'Discord: @stella_byte'
+description: >-
+  Here you can see an overview on the links and communities around TPM and
+  SkyCofl
+icon: exclamation
 ---
 
-# TPM Documentation
+# SkyCofl Setup and Links
 
-Welcome to the official documentation for **TPM (The Perfect Macro)** - an automated auction house flipper for Hypixel SkyBlock, officially partnered with SkyCofl.
+***
 
-## What is TPM?
+{% stepper %}
+{% step %}
+### Create a SkyCofl account
 
-TPM is an advanced automation tool that helps you flip items on the Hypixel SkyBlock auction house efficiently. It connects to SkyCofl (Coflnet) to receive flip opportunities and automatically purchases, manages, and relists items for profit.
+{% embed url="https://sky.coflnet.com/refed?refId=odeO2g" fullWidth="false" %}
+SkyCofl site
+{% endembed %}
 
-### Key Features
+<div align="center" data-full-width="false"><figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption><p><mark style="color:$info;">Go to</mark> <a href="https://sky.coflnet.com/?refId=odeO2g"><mark style="color:$info;">SkyCofl</mark> </a><mark style="color:$info;">and press on the "Account" tab.</mark></p></figcaption></figure> <figure><img src="../../.gitbook/assets/firefox_VoINhvqDmo.png" alt=""><figcaption><p><mark style="color:$info;">Log in with your Google account.</mark></p></figcaption></figure></div>
+{% endstep %}
 
-* **Automated Flipping**: Automatically buys and sells items based on your configured profit thresholds
-* **SkyCofl Integration**: Officially partnered with Coflnet for reliable flip data
-* **Multi-Account Support**: Manage multiple Minecraft accounts simultaneously
-* **Smart Relisting**: Automatically relists items with optimized pricing
-* **Bed Spam**: Fast auction claiming for competitive flips
-* **Discord Notifications**: Real-time updates on purchases, sales, and profits
-* **Auto-Rotation**: Schedule bot on/off times for different accounts
-* **Customizable Filters**: Fine-tune what items to buy based on profit, percentage, tags, and more
-* **Bank Management**: Automatic coin management and island automation
+{% step %}
+### Download the Mod
 
-## TPM vs TPM+
+{% embed url="https://sky.coflnet.com/mod?refId=odeO2g" %}
+Mod Download page
+{% endembed %}
 
-TPM comes in two versions:
+<p align="center">Then, verify your account in-game. You can either type <code>/cofl verify</code> in-game with the mod loaded or waiting for the mod to send instructions on its own. </p>
 
-* **TPM**: Standard version with full flipping functionality
-* **TPM+**: Premium version with enhanced features and capabilities
+<p align="center">Verifying works by clicking on the link sent in chat and logging in with your Cofl account.</p>
+{% endstep %}
 
-See the [TPM+ documentation](tpm-plus/overview.md) for more details on the premium version.
+{% step %}
+### Purchase a plan
 
-## Getting Started
+{% embed url="https://sky.coflnet.com/premium?refId=odeO2g" %}
+Premium
+{% endembed %}
 
-New to TPM? Start here:
+**You have two options for Premium:**
 
-1. [Prerequisites](getting-started/prerequisites.md) - What you need before using TPM
-2. [Installation](getting-started/installation.md) - How to set up TPM
-3. [Quickstart Guide](getting-started/quickstart.md) - Get flipping quickly
+1. Premium (1800 Coins/month) | \~500m profit per week
+2. Premium+ (9000 Coins/month or 2700/week) | \~1-2b profit per week
 
-## Configuration
+[SkyCofl ](https://sky.coflnet.com/premium?refId=odeO2g)offers payment only via PayPal or Stripe (Credit/Debit card).
 
-TPM uses configs that can be loaded through the Cofl net panel (sky.coflnet.com/flipper). Configs can be:
+#### If these payment methods are unavailable to you, you can also pay with other payment methods by visiting the `buying-cofl-coins` channel in the [Config Hub Discord server](https://discord.gg/QRhjWZjY6s).
+{% endstep %}
 
-* **Free**: Community or basic configurations
-* **Paid**: Premium configs optimized for specific strategies
+{% step %}
+### Join Communities
 
-Learn more about:
+See [below](./#more-links) to join the other TPM-related communities.
+{% endstep %}
+{% endstepper %}
 
-* [Config Structure](configuration/config-structure.md)
-* [Filters and Settings](configuration/filters-and-settings.md)
-* [Cofl Commands](configuration/cofl-commands.md)
+***
 
-## Guides
+### More Links
 
-Step-by-step guides for common tasks:
+{% embed url="https://sky.coflnet.com/wiki?refId=odeO2g" %}
+SkyCofl Wiki
+{% endembed %}
 
-* [Loading Configs](guides/loading-configs.md)
-* [Manual Pricing](guides/manual-pricing.md)
-* [Handling Bad Flips](guides/handling-bad-flips.md)
+{% embed url="https://discord.gg/QRhjWZjY6s" %}
+Config Hub Discord, used for buying/selling SkyCofl coins and configs
+{% endembed %}
 
-## Advanced Topics
-
-For advanced users:
-
-* [VPS Setup](advanced/vps-setup.md)
-* [Multiple Accounts](advanced/multiple-accounts.md)
-* [Auto-Rotation](advanced/auto-rotation.md)
-
-## Need Help?
-
-* Check the [Troubleshooting](troubleshooting/common-issues.md) section for common issues
-* Contact TPM support through Discord
-
-## Important Notes
-
-* TPM is officially partnered with SkyCofl
-* Always use configs from trusted sources
-* Monitor your bot regularly to ensure proper operation
-* Follow Hypixel's rules and guidelines when using automation tools
+{% embed url="https://discord.gg/nbJm2stTyX" %}
+TPM Discord Server, for support and community
+{% endembed %}

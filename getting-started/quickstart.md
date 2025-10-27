@@ -5,10 +5,11 @@ Get up and running with TPM quickly with this step-by-step guide.
 ## Before You Begin
 
 Make sure you have:
-- TPM installed and configured (see [Installation](installation.md))
-- A Coflnet account with Premium or Premium+
-- A config to use (free or paid)
-- At least 50M coins in your purse
+
+* TPM installed and configured (see [Installation](installation.md))
+* A Coflnet account with Premium or Premium+
+* A config to use (free or paid)
+* At least 50M coins in your purse
 
 ## Step 1: Load Your Config
 
@@ -48,7 +49,7 @@ This ensures TPM only buys items with at least 6% profit margin. This is especia
 
 ### Other Useful Commands
 
-```
+````
 /cofl set maxprice 100m        # Maximum price to pay for an item
 
 For more commands, see the [Cofl Commands](../configuration/cofl-commands.md) documentation.
@@ -59,9 +60,10 @@ If TPM isn't already running, start it:
 
 ```bash
 node index.js
-```
+````
 
 You should see:
+
 1. Bot connecting to Minecraft
 2. Joining Hypixel
 3. Connecting to Coflnet WebSocket
@@ -72,26 +74,29 @@ You should see:
 ### Discord Notifications
 
 If you configured a webhook, you'll receive Discord notifications for:
-- Bot startup/shutdown
-- Purchases made
-- Items sold
-- Profits earned
-- Errors or issues
+
+* Bot startup/shutdown
+* Purchases made
+* Items sold
+* Profits earned
+* Errors or issues
 
 ### In-Game Monitoring
 
 You can also monitor directly in Minecraft:
-- Watch chat for flip notifications
-- Check your purse balance
-- View your auction house listings
+
+* Watch chat for flip notifications
+* Check your purse balance
+* View your auction house listings
 
 ### Console Output
 
 The console will show:
-- Flip opportunities received
-- Actions taken (buy/skip)
-- Errors or warnings
-- Connection status
+
+* Flip opportunities received
+* Actions taken (buy/skip)
+* Errors or warnings
+* Connection status
 
 ## Step 5: Your First Flips
 
@@ -116,13 +121,14 @@ Coflnet sends flip → TPM evaluates → Meets criteria? → Buy item → List o
 
 ### Start Conservative
 
-- Use higher minimum profit thresholds initially
-- Monitor closely for the first few hours
-- Adjust settings based on results
+* Use higher minimum profit thresholds initially
+* Monitor closely for the first few hours
+* Adjust settings based on results
 
 ### Watch for Bad Flips
 
 If TPM buys an item that's hard to sell:
+
 1. Note the item name
 2. Check the price using `/cofl lore` (see [Manual Pricing](../guides/manual-pricing.md))
 3. Report to your config provider so they can fix it
@@ -130,36 +136,40 @@ If TPM buys an item that's hard to sell:
 ### Optimize Your Config
 
 After running for a while:
-- Review your profit margins
-- Adjust min profit and percentage
-- Fine-tune item filters
-- Consider upgrading to a paid config
+
+* Review your profit margins
+* Adjust min profit and percentage
+* Fine-tune item filters
+* Consider upgrading to a paid config
 
 ## Common First-Time Issues
 
 ### No Flips Coming In
 
 **Solutions:**
-- Verify your Coflnet subscription is active
-- Check your config is loaded: `/cofl status`
-- Ensure your minprofit isn't too high
-- Verify bot is connected to Coflnet
+
+* Verify your Coflnet subscription is active
+* Check your config is loaded: `/cofl status`
+* Ensure your minprofit isn't too high
+* Verify bot is connected to Coflnet
 
 ### Bot Keeps Disconnecting
 
 **Solutions:**
-- Check your internet connection
-- Verify Minecraft account credentials
-- Ensure VPS has enough resources
-- Check Hypixel isn't experiencing issues
+
+* Check your internet connection
+* Verify Minecraft account credentials
+* Ensure VPS has enough resources
+* Check Hypixel isn't experiencing issues
 
 ### Items Not Selling
 
 **Solutions:**
-- Your config might need adjustment
-- Market conditions may have changed
-- Use `/cofl lore` to check current prices
-- Contact your config provider
+
+* Your config might need adjustment
+* Market conditions may have changed
+* Use `/cofl lore` to check current prices
+* Contact your config provider
 
 See the [Troubleshooting Guide](../troubleshooting/common-issues.md) for more solutions.
 
@@ -175,9 +185,10 @@ Now that you're up and running:
 ## Getting Help
 
 Need assistance?
-- Join the TPM Discord server
-- Contact your config provider
-- Check the [Troubleshooting Guide](../troubleshooting/common-issues.md)
-- Review the [full documentation](../README.md)
+
+* Join the TPM Discord server
+* Contact your config provider
+* Check the [Troubleshooting Guide](../troubleshooting/common-issues.md)
+* Review the [full documentation](./)
 
 Happy flipping!

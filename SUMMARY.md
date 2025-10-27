@@ -2,15 +2,14 @@
 
 ## Overview
 
-* [TPM Documentation](README.md)
-
 ## Getting Started
 
-* [SkyCofl Setup and Links](getting-started/skycofl-setup-and-links/README.md)
+* [SkyCofl Setup and Links](README.md)
   * [SkyCofl](https://sky.coflnet.com/wiki?refId=odeO2g)
   * [TPM Discord](https://discord.gg/nbJm2stTyX)
   * [Config Hub Discord](https://discord.gg/QRhjWZjY6s)
 * [Prerequisites](getting-started/prerequisites.md)
+* [TPM Documentation](getting-started/readme.md)
 * [Installation](getting-started/installation.md)
 * [Quickstart Guide](getting-started/quickstart.md)
 
