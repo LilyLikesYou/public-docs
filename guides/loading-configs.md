@@ -203,7 +203,7 @@ Most paid configs update automatically:
 
 **Solutions:**
 1. Adjust filters: `/cofl set minprofit 7m`
-2. Blacklist bad items: Visit https://sky.coflnet.com/
+2. Blacklist bad items: Visit https://sky.coflnet.com/?refId=odeO2g
 3. Contact config provider for update
 4. Review your profit thresholds
 
