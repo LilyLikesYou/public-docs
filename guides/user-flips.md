@@ -6,8 +6,6 @@
 
 // TODO: Explain user flips and how they differ from other flip types
 
-User flips are flip opportunities submitted by Coflnet users rather than detected by automated finders.
-
 ## How User Flips Work
 
 // TODO: Explain the user flip system
@@ -38,24 +36,6 @@ User flips are flip opportunities submitted by Coflnet users rather than detecte
 ## Configuration
 
 // TODO: How to configure user flips in TPM
-
-**Enable/Disable User Flips:**
-```javascript
-// TODO: Config example
-skip: {
-    finderTypes: ["USER"]  // Skip user flips
-}
-```
-
-## When to Use User Flips
-
-// TODO: Guidelines for when to enable/disable user flips
-
-**Good for:**
-- // TODO
-
-**Avoid when:**
-- // TODO
 
 ## Verification Tips
 
