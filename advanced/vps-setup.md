@@ -1,91 +1,40 @@
 # VPS Setup Guide
 
-This guide explains how to set up a Virtual Private Server (VPS) for running standard TPM 24/7.
+Set up a Virtual Private Server for running standard TPM 24/7.
 
-## When Do You Need a VPS?
+**Note:** TPM+ users don't need a VPS - it's hosted by Coflnet Discord bot.
 
-**Standard TPM users**: A VPS is required to run TPM 24/7 without keeping your personal computer on.
+## Recommended Providers
 
-**TPM+ users**: TPM+ can only he hosted via the CoflNet discord bot.
+**Vultr** (vultr.com) or **Linode** (linode.com) - $5/mo
+- Alternatives: DigitalOcean, Hetzner, AWS Lightsail
 
-## What is a VPS?
+**Requirements:**
+- 1GB RAM (2GB for multiple accounts)
+- 1 vCPU
+- 25GB storage
+- Ubuntu/Debian OS
+- **Location: Chicago** (closest to Hypixel)
 
-A Virtual Private Server (VPS) is a virtualized server that runs in the cloud, providing:
+## Setup Steps
 
-- **24/7 Uptime**: Bot runs continuously without relying on your PC
-- **Dedicated Resources**: Consistent performance
-- **Remote Access**: Manage TPM from anywhere
-- **Reliability**: Professional infrastructure
+### 1. Create VPS Instance
+1. Sign up with provider
+2. Create new instance with Ubuntu/Debian
+3. Choose $5-6/mo plan
+4. Select **Chicago** datacenter
+5. Add SSH key (recommended)
+6. Create instance
 
-## Recommended VPS Providers
-
-As mentioned in the user-provided setup guide, these providers are recommended:
-
-### 1. Vultr
-- Good performance
-- Affordable pricing
-- Multiple locations
-- Easy setup
-
-**Website**: vultr.com
-
-### 2. Linode
-- Excellent performance
-- Reliable service
-- Good support
-- Competitive pricing
-
-**Website**: linode.com
-
-### Other Options
-- DigitalOcean
-- Hetzner
-- AWS Lightsail
-
-## Minimum Requirements
-
-For running TPM:
-
-- **CPU**: 1 vCPU (adequate for single account)
-- **RAM**: 1GB minimum (2GB recommended for multiple accounts)
-- **Storage**: 25GB SSD
-- **OS**: Ubuntu or Debian
-- **Network**: 1TB bandwidth/month
-
-**Cost**: Typically $5-6/month for basic plans
-
-## Setting Up Your VPS
-
-### Step 1: Create VPS Instance
-
-1. Sign up with your chosen provider
-2. Create a new instance/droplet
-3. Select **Ubuntu or Debian** as OS
-4. Choose appropriate plan ($5-6/month is sufficient)
-5. Select datacenter region (closer to Hypixel servers is better - CHICAGO)
-6. Add SSH key for security
-7. Create the instance
-
-### Step 2: Connect to Your VPS
-
-#### From Linux/macOS:
-
+### 2. Connect via SSH
+**Linux/macOS:**
 ```bash
 ssh root@your-vps-ip
 ```
 
-#### From Windows:
+**Windows:** Use Termius app
 
-1. Download Termius
-2. Connect to your VPS IP on port 22
-3. Login as root
-
-Note: You can alsp use Termius on mobile via the app store.
-
-### Step 3: Initial Server Setup
-
-After connecting, secure and update your server:
-
+### 3. Initial Setup
 ```bash
 # Update system
 sudo apt update && sudo apt upgrade -y
@@ -95,383 +44,127 @@ sudo ufw allow OpenSSH
 sudo ufw enable
 ```
 
-### Step 4: Install Node.js
-
-TPM requires Node.js (version 16 or higher):
-
+### 4. Install Node.js
 ```bash
-# Install Node.js 18
 curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 sudo apt-get install -y nodejs
-
-# Verify installation
-node --version
-npm --version
+node --version  # Verify v18+
 ```
 
-You should see Node.js v18.x.x and npm version.
-
-### Step 5: Install Required Tools
-
+### 5. Install Tools
 ```bash
-# Install tmux for background operation
-sudo apt install tmux -y
-
-# Install git (if needed)
-sudo apt install git -y
+sudo apt install tmux git -y
 ```
 
-### Step 6: Download TPM
-
+### 6. Get TPM
 ```bash
-# Create TPM directory
-mkdir -p ~/tpm
-cd ~/tpm
-
-# Download TPM files (TODO: EXPAND)
-- Via TPM-Loader file from Github releases
-- By git cloning the repository
+mkdir -p ~/tpm && cd ~/tpm
+# Download TPM files from TPM team
+# Via TPM-Loader from Github releases or git clone
 ```
 
-### Step 7: Install Dependencies
-
-Navigate to the folder that conrainers TPM
-
+### 7. Install Dependencies
+**Standard installation:**
 ```bash
 npm install .
 ```
 
-This installs all required Node.js packages for TPM.
-
-OR, if you are using a loader
+**Using loader:**
 ```bash
 tmux
 sudo chmod 777 ./tpm-loader
 ./tpm-loader
 ```
 
-### Step 8: Configure TPM
-
-Edit your `config.json5` file:
-
+### 8. Configure
 ```bash
 nano config.json5
 ```
+See [Config Structure](../configuration/config-structure.md) for details.
 
-Add your configuration (see [Config Structure](../configuration/config-structure.md)):
-
-```json
-{TODO: ADD EXTRA INFO}
-```
-
-Save and exit (Ctrl+X, then Y, then Enter).
-
-### Step 9: Test TPM
-
-Run TPM to ensure it works:
-
+### 9. Test Run
 ```bash
 node index.js
 ```
+Should see: Bot → Hypixel → Coflnet → Ready. Press Ctrl+C to stop.
 
-You should see:
-- Bot connecting to Minecraft
-- Joining Hypixel
-- Connecting to Coflnet
-- "Ready to receive flips" or similar
+## Running 24/7
 
-If you see errors, check:
-- Config.json5 syntax
-- Account credentials
-- Internet connectivity
-
-Press Ctrl+C to stop.
-
-## Running TPM 24/7
-
-### Using Tmux (Recommended)
-
-Tmux allows TPM to run even after you disconnect from SSH.
-
-**Start TPM in Tmux:**
-
+### Tmux (Recommended)
 ```bash
-# Create a new screen session
+# Start
 tmux
+cd ~/tpm && node index.js
+# Detach: Ctrl+B, then D
 
-# Start TPM
-cd ~/tpm
-node index.js
-
-# Detach from screen: Ctrl+A, then D
-```
-
-**Useful screen commands:**
-
-```bash
-# List screens
-tmux -ls
-
-# Reattach to TPM screen
+# Reattach
 tmux a
 
-# Kill a screen (the ego may die)
-screen -X -S tpm quit
+# Kill session
+tmux kill-session -t 0
 ```
 
-### Using PM2 (Alternative)
-
-PM2 is a process manager that can auto-restart TPM:
-
+### PM2 (Alternative)
 ```bash
-# Install PM2
 npm install -g pm2
-
-# Start TPM with PM2
 pm2 start index.js --name tpm
-
-# View logs
 pm2 logs tpm
-
-# Stop TPM
-pm2 stop tpm
-
-# Restart TPM
 pm2 restart tpm
-
-# Auto-start on boot
-pm2 startup
-pm2 save
 ```
 
-## Monitoring Your Bot
+## Monitoring & Maintenance
 
-### Via Discord
-
-If you configured webhooks, monitor through Discord notifications.
-
-### Via Console
-
+**Check resources:**
 ```bash
-# Reattach to screen
-tmux -r tpm
-
-# Or view PM2 logs
-pm2 logs tpm
+free -h    # Memory
+df -h      # Disk
+top        # CPU
 ```
 
-## Maintenance
-
-### Regular Updates
-
-Keep your system updated:
-
+**Update system:**
 ```bash
-# Update system packages
 sudo apt update && sudo apt upgrade -y
-
-# Update TPM (if updates available)
-cd ~/tpm
-git pull  # if using git
-npm install . # update dependencies
+cd ~/tpm && npm install .
 ```
 
-### Monitoring Resources
-
+**Restart bot:**
 ```bash
-# Check memory usage
-free -h
-
-# Check disk space
-df -h
-
-# Check CPU usage
-top
-```
-
-### Restart TPM
-
-```bash
-# If using tmux
-tmux -X -S tpm quit
-tmux -S tpm
-node index.js
-# Ctrl+A, then D
-
-# If using PM2
-pm2 restart
-```
-
-## Troubleshooting
-
-### TPM Won't Start
-
-**Check Node.js version:**
-```bash
-node --version  # Should be 16+
-```
-
-**Check config syntax:**
-```bash
-node -c config.json5 # Check for syntax errors
-```
-
-**View error logs:**
-- Check console output
-- Look for error messages
-
-### Bot Disconnects Frequently
-
-**Check internet connection:**
-```bash
-ping mc.hypixel.net
-```
-
-**Check memory:**
-```bash
-free -h
-```
-
-May need to upgrade VPS plan.
-
-### Can't Connect to VPS
-
-- Verify IP address
-- Check VPS is running in provider dashboard
-- Ensure firewall allows SSH (port 22)
-- Try provider's web console
-
-### Out of Memory
-
-If TPM crashes with memory errors:
-
-```bash
-# Check available memory
-free -h
-
-# Consider upgrading VPS plan
-# Or optimize config to reduce memory usage
-```
-
-## Security Best Practices
-
-### Essential Security
-
-1. **Use SSH Keys**: More secure than passwords
-2. **Keep Updated**: Regular apt updates
-3. **Enable Firewall**: UFW blocks unauthorized access
-4. **Strong Passwords**: If using password auth
-5. **Backup Configs**: Save config.json5 regularly
-
-### Disable Password Authentication
-
-After setting up SSH keys:
-
-```bash
-sudo nano /etc/ssh/sshd_config
-```
-
-Set:
-```
-PasswordAuthentication no
-```
-
-Restart SSH:
-```bash
-sudo systemctl restart sshd
-```
-
-### Regular Backups
-
-Backup your configuration:
-
-```bash
-# Create backup directory
-mkdir -p ~/backups
-
-# Backup config
-cp ~/tpm/config.js ~/backups/config-$(date +%Y%m%d).js
-
-# Download to local machine (from your PC):
-scp root@vps-ip:~/tpm/config.js ./config-backup.js
+# Tmux: kill session then restart
+# PM2: pm2 restart tpm
 ```
 
 ## Multiple Accounts
 
-If running multiple accounts:
+**Requirements:**
+- 1 account: 1GB RAM
+- 2-3 accounts: 2GB RAM
+- 4+ accounts: 4GB RAM or multiple VPS
 
-### Resource Requirements
-
-- 1 account: 1GB RAM sufficient
-- 2-3 accounts: 2GB RAM recommended
-- 4+ accounts: 4GB RAM or multiple VPS instances
-
-### Configuration
-
+**Config:**
 ```javascript
-module.exports = {
-    igns: ["Account1", "Account2", "Account3"],
-    // ... rest of config
-}
+igns: ["Account1", "Account2", "Account3"]
 ```
 
-Each account runs as separate bot instance automatically.
+## Security
 
-## VPS Cost Comparison
+1. Use SSH keys
+2. Keep system updated
+3. Enable UFW firewall
+4. Backup config.json5 regularly:
+```bash
+cp ~/tpm/config.json5 ~/backups/config-$(date +%Y%m%d).json5
+```
 
-| Provider | Basic Plan | RAM | CPU | Storage |
-|----------|-----------|-----|-----|---------|
-| Vultr | $5/mo | 1GB | 1 vCPU | 25GB |
-| Linode | $5/mo | 1GB | 1 vCPU | 25GB |
-| DigitalOcean | $6/mo | 1GB | 1 vCPU | 25GB |
-| Hetzner | €4/mo | 2GB | 1 vCPU | 20GB |
+## Troubleshooting
 
-## Tips for VPS Usage
+**Bot won't start:** Check Node.js version (`node --version`) and config.json5 syntax
 
-### 1. Choose Location Wisely
+**Disconnects:** Check `ping mc.hypixel.net` and `free -h` (may need RAM upgrade)
 
-- Chicago recommended (closer to Hypixel)
-- Lower latency = faster flip buying
+**Can't connect:** Verify IP, check VPS running in dashboard, ensure port 22 open
 
-### 2. Monitor Costs
+See [Common Issues](../troubleshooting/common-issues.md) for more help.
 
-- Watch bandwidth usage
-- Upgrade only when needed
-- Most users: $5/mo plan is sufficient
+---
 
-### 3. Keep Configs Secure
-
-- Never share config.json5 (contains session password)
-- Use environment variables for sensitive data
-- Regular backups
-
-### 4. Document Your Setup
-
-Keep notes on:
-- VPS provider and IP
-- Login credentials (securely)
-- Configuration changes
-- Issues and solutions
-
-## Next Steps
-
-After VPS setup:
-
-1. **Configure TPM**: Review [Config Structure](../configuration/config-structure.md)
-2. **Load Config**: Follow [Loading Configs](../guides/loading-configs.md)
-3. **Optimize Settings**: Read [Filters and Settings](../configuration/filters-and-settings.md)
-4. **Set Up Rotation**: Check [Auto-Rotation](auto-rotation.md)
-
-## Getting Help
-
-VPS issues?
-- Check provider documentation
-- Ask in TPM Discord
-- Review [Troubleshooting Guide](../troubleshooting/common-issues.md)
-
-TPM issues?
-- Check TPM documentation
-- Contact TPM support
-- Ask config provider
-
-With your VPS properly set up, TPM can run 24/7 and flip continuously!
+**Next:** [Config Structure](../configuration/config-structure.md) | [Loading Configs](../guides/loading-configs.md) | [Auto-Rotation](auto-rotation.md)
