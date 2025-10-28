@@ -1,319 +1,89 @@
 # Handling Bad Flips
 
-## What is a Bad Flip?
-
-A bad flip is when TPM purchases an item that:
-- Doesn't sell within 72 hours
-- Sells for less profit than expected
-- Has inaccurate pricing data
-- Low market demand
-- Overpaid compared to actual value
+A bad flip is an item that doesn't sell within 72h, sells for less profit, or was overpaid for.
 
 ## Immediate Actions
 
-When you identify a bad flip, take these steps immediately:
-
-### Step 1: Don't Panic
-
-- Bad flips happen to everyone
-- One bad flip won't ruin your profits
-- Most items will eventually sell
-- Learn from the experience
-
-### Step 2: Check Current Price
-
-Use Cofl lore to verify current market value:
-
+**1. Check Current Price**
 ```
 /cofl lore
 ```
+Check median, volume, and BIN price. See [Manual Pricing](manual-pricing.md).
 
-Look at:
-- **Median price** - True market value
-- **Volume** - How many recent sales
-- **BIN price** - Recent instant sales
+**2. Determine Status**
+- **Worth more than paid:** List at median × 0.95, be patient
+- **Worth same as paid:** List at cost, break even
+- **Worth less than paid:** List aggressively to minimize loss
 
-See [Manual Pricing Guide](manual-pricing.md) for detailed instructions.
-
-### Step 3: Determine Item Status
-
-**Item worth more than you paid?**
-- Good! You can still profit
-- List at median * 0.95
-- Be patient
-
-**Item worth same as you paid?**
-- Break-even situation
-- List at cost
-- Won't profit but won't lose money
-
-**Item worth less than you paid?**
-- True bad flip
-- May need to take a loss
-- List competitively to minimize loss
-
-### Step 4: Prevent Future Purchases
-
-Block the item immediately:
-
+**3. Prevent Future Purchases**
 ```
 /cofl blacklist add "[Item Name]"
 ```
 
-### Strategy 2: Patient Approach
+## Listing Strategies
 
-List at fair price and wait:
+**Small loss:** List at cost, 48h duration
 
-```
-Current median: 15M
-List at: 14.5M (97% of median)
-Duration: 72 hours
-```
+**Medium loss:** List at median × 0.85-0.93, 72h duration
 
-**When to use:**
-- No urgency
-- Item has some demand
-- Not losing much money
+**Large loss:** List at median × 0.75-0.85, 72h duration
 
-### Strategy 3: Cut Losses
-
-Accept the loss and sell quickly:
-
-```
-Paid: 15M
-Current value: 12M
-```
-
-**When to use:**
-- Need purse space
-- Item value dropping
-- Unlikely to sell at higher price
-
-### Strategy 4: Long-Term Hold
-
-Keep item and wait for market recovery:
-
-**When to use:**
-- Have purse space
-- Item value may increase
-- Can afford to wait weeks/months
-
-**Risks:**
-- Ties up coins
-- May never recover
-- Opportunity cost
-
-## Listing Recommendations
-
-### For Slightly Bad Flips (Small Loss)
-
-```
-Starting Bid: Cost - 5%
-BIN: Cost
-Duration: 48 hours
-```
-
-### For Moderately Bad Flips (Medium Loss)
-
-```
-Starting Bid: Median * 0.85
-BIN: Median * 0.93
-Duration: 72 hours
-```
-
-### For Very Bad Flips (Large Loss)
-
-```
-Starting Bid: Median * 0.75
-BIN: Median * 0.85
-Duration: 72 hours
-```
+**Long-term hold:** Keep if you have purse space and price may recover (risks: tied up coins, may not recover)
 
 ## Reporting to Config Provider
 
-**Always report bad flips to your config provider!**
-
-This helps them improve the config and prevent future bad purchases.
-
-### What to Include in Report
-
-**Required Information:**
-1. Item name
-2. Amount paid
-3. Current median price (from `/cofl lore`)
-4. Sales volume
-5. Why it's a bad flip
-
-**Example Report:**
+**Report Example:**
 ```
-Bad flip report:
-
-Item: Aspect of the Dragons
-Paid: 18M
-Median: 15M (45 sales)
-Issue: Bot overpaid by 3M, item has low demand
-
-Please add to config filter or adjust max price.
+Item: [Name]
+Paid: [Amount]
+Median: [Amount] ([Volume] sales)
+Issue: [Why it's bad]
 ```
 
-### When to Report
-
-Report if:
-- Same item bought multiple times
+**Report if:**
+- Same item bought repeatedly
 - Bot consistently overpays
-- Item has very low volume (< 5 sales)
-- Profit significantly lower than expected
-- Item doesn't sell after 72 hours
+- Volume < 5 sales
+- Doesn't sell after 72h
 
-### How to Report
+Forward webhook message or DM config provider with `/cofl lore` screenshot.
 
-**Discord:**
-- DM config provider
-- Post in support channel
-- Include screenshot of `/cofl lore`
+## Common Causes
 
-**In-Game:**
-- Note item name
-- Document details
-- Report when convenient
+**Outdated price data:** Market dropped, Cofl data not updated
+- Blacklist temporarily, wait for refresh
 
-## Analyzing Why It Happened
+**Low volume item:** Unreliable estimates, hard to sell
+- Blacklist, adjust config to skip low-volume items
 
-Understanding why helps prevent future bad flips.
-
-### Common Causes
-
-#### 1. Outdated Price Data
-
-**Cause:**
-- Market price dropped recently
-- Cofl data hasn't updated
-- Bot using old target price
-
-**Solution:**
-- Config provider updates data
-- Temporary item blacklist
-- Wait for data refresh
-
-#### 2. Low Volume Item
-
-**Cause:**
-- Item rarely sells
-- Not enough data points
-- Price estimates unreliable
-
-**Solution:**
-- Blacklist low-volume items
-- Adjust config to skip low-volume
-- Use higher profit thresholds
-
-#### 3. Special Variant
-
-**Cause:**
-- Item has specific attribute
-- Bot can't distinguish variants
-- Variant worth less than standard
-
-**Solution:**
+**Special variant:** Bot can't distinguish, variant worth less
 - Blacklist specific variant
-- Config provider adds variant filter
-- Manual oversight for that item type
 
-#### 4. Market Crash
+**Market crash:** Supply/demand changed, Hypixel update
+- Monitor news, adjust filters, take loss
 
-**Cause:**
-- Supply increased suddenly
-- Demand decreased
-- Hypixel update changed meta
+**Profit calculation error:** Target price incorrect
+- Report to provider
 
-**Solution:**
-- Can't always predict
-- Monitor market news
-- Adjust filters after crashes
-- Take loss and move on
+## Prevention
 
-#### 5. Profit Calculation Error
-
-**Cause:**
-- Target price incorrect
-- Fees not calculated properly
-- Profit percentage misleading
-
-**Solution:**
-- Report to config provider
-- Verify profit calculations
-- Use realistic expectations
-
-## Preventing Bad Flips
-
-### 1. Proper Filter Configuration
-
-Set appropriate thresholds:
-
+**Proper filters:**
 ```
 /cofl set minprofit 5m
 /cofl set minprofitpercent 6
 /cofl set maxprice 100m
 ```
 
-See [Filters and Settings](../configuration/filters-and-settings.md) for details.
+**Maintain blacklist:** Add items that didn't sell or you overpaid for
 
-### 2. Maintain Blacklist
+**Monitor actively:** Review purchases, check values, adjust filters
 
-Regularly update your blacklist:
+**Use quality configs:** Reputable providers, keep updated
 
-```
-/cofl blacklist add "Problematic Item"
-```
+**Switch configs if:** 3+ bad flips/day, consistent losses, config outdated
 
-Review and add:
-- Items that didn't sell
-- Items with low volume
-- Items you overpaid for
+---
 
-### 3. Monitor Actively
+**Key:** Handle quickly, learn, prevent repeats. Bad flips happen - proper management keeps them rare and minimal.
 
-Check bot regularly:
-- Review recent purchases
-- Check item values
-- Verify listings
-- Adjust filters as needed
-
-### 4. Use Quality Configs
-
-- Use reputable config providers
-- Keep configs updated
-- Pay for quality if needed
-- Test configs carefully
-
-
-**If flips are consistently low quality:**
-- Raise profit thresholds
-- Switch configs
-- Pause flipping temporarily
-
-
-## When to Switch Configs
-
-Consider switching if:
-- 3+ bad flips per day
-- Consistent losses
-- Config not updated
-- Better options available
-- Strategy doesn't match goals
-
-## Next Steps
-
-- Review [Manual Pricing](manual-pricing.md) to price items correctly
-- Learn about [Filters and Settings](../configuration/filters-and-settings.md)
-- Check [Cofl Commands](../configuration/cofl-commands.md) for adjustments
-- Read [Troubleshooting](../troubleshooting/common-issues.md) for more help
-
-## Remember
-
-**Bad flips are part of flipping.** The key is to:
-1. Handle them quickly
-2. Learn from them
-3. Prevent repeats
-
-With proper management, bad flips should be rare and minimal losses!
+**See also:** [Manual Pricing](manual-pricing.md) | [Filters and Settings](../configuration/filters-and-settings.md) | [Cofl Commands](../configuration/cofl-commands.md)
