@@ -12,7 +12,7 @@ Quick solutions for TPM problems.
 
 **No Coflnet flips:**
 - Check subscription active: `/cofl premium`
-- Verify Coflnet online: sky.coflnet.com
+- Verify Coflnet online: https://sky.coflnet.com/?refId=odeO2g
 - Restart bot: `node index.js`
 
 **Frequent disconnects:**

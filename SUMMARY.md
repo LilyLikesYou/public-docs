@@ -24,6 +24,8 @@
 * [Loading Configs](guides/loading-configs.md)
 * [Manual Pricing](guides/manual-pricing.md)
 * [Handling Bad Flips](guides/handling-bad-flips.md)
+* [Collectors Hub Selling](guides/collectors-hub.md)
+* [User Flips](guides/user-flips.md)
 
 ## TPM+
 

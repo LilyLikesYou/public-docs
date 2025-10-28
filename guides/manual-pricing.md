@@ -53,7 +53,7 @@ List at: Median × 0.88 to 0.90
 
 ## Cofl Website
 
-Check price history at **sky.coflnet.com**:
+Check price history at **[sky.coflnet.com](https://sky.coflnet.com/?refId=odeO2g)**:
 1. Search item name
 2. View price graph
 3. Check recent sales
