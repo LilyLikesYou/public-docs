@@ -11,42 +11,43 @@ Get a VPS with 1GB RAM, 1 CPU core. See [VPS Setup Guide](../advanced/vps-setup.
 
 ### 2. Install Node.js
 ```bash
-curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 sudo apt-get install -y nodejs
 ```
 
-### 3. Get TPM Files
-Contact TPM team for access, then:
+### 3. Get TPM
+Visit this [GitHub releases page](https://github.com/IcyHenryT/TPM-Loader/releases/)
+Pick the version which fits your chosen OS (in most cases linux if using a VPS)
+
 ```bash
-mkdir tpm && cd tpm
-# Download/clone TPM files (link from TPM team)
-npm install
+mkdir tpm
+cd tpm
+curl -o TPM-loader-linux https://github.com/IcyHenryT/TPM-Loader/releases/download/1.0.2/TPM-loader-linux
 ```
 
-### 4. Configure
-Edit `config.json5`:
-```javascript
-module.exports = {
-    igns: ["YourMinecraftUsername"],
-    webhook: "your-discord-webhook-url",
-    session: "your-coflnet-password",
-    // See Config Structure docs for more options
+### 4. Start TPM
+```bash
+chmod 777 ./TPM-loader-linux
+./TPM-loader-linux
+```
+Then, press `CTRL+C` twice.
+
+### 5. Configure
+Edit `config.json5` using `nano config.json5`
+```json
+{
+    ign: ["YourMinecraftUsername"],
+    webhook: "your-discord-webhook-url"
 }
 ```
 
 Get configs from [Config Hub Discord](https://discord.gg/cfghub).
-
-### 5. Start TPM
-```bash
-node index.js
-```
 
 ### Keep Running (Optional)
 **Tmux:**
 ```bash
 sudo apt-get install tmux
 tmux  # Start session
-node index.js
+./TPM-loader-linux
 # Ctrl+B, then D to detach
 # tmux a to reattach
 ```
@@ -54,7 +55,7 @@ node index.js
 **PM2:**
 ```bash
 npm install -g pm2
-pm2 start index.js --name tpm
+pm2 start ./TPM-loader-linux --name tpm
 pm2 logs tpm
 ```
 
@@ -67,7 +68,7 @@ node --version
 
 **Permissions:**
 ```bash
-sudo chown -R $USER:$USER /path/to/tpm
+sudo chown -R $USER:$USER /root/tpm/TPM-loader-linux
 ```
 
 **Authentication cache issues:**
