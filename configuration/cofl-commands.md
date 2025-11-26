@@ -1,91 +1,163 @@
 # Cofl Commands
 
-In-game commands to configure TPM. All commands start with `/cofl` and take effect immediately.
+This guide covers the most useful Cofl commands for configuring and controlling TPM in-game.
+
+## Overview
+
+Cofl commands allow you to adjust TPM's behavior without editing config files. These commands are entered in Minecraft chat and take effect immediately.
+
+## Basic Syntax
+
+All Cofl commands start with `/cofl`:
+
+```
+/cofl [command] [arguments]
+```
 
 ## Config Management
 
-**Load config:**
-```
-/cofl loadconfig [config-maker] [config-name]
-```
-Example: `/cofl loadconfig stellaconfig stellaconfig`
+### Load Config
 
-**Check status:**
+Load a config from the Cofl panel.
+
+```
+/cofl loadconfig [config-maker-name] [config-name]
+```
+
+**Examples:**
+```
+/cofl loadconfig stellaconfig stellaconfig
+/cofl loadconfig myconfig myconfig
+```
+
+### Check Status
+
+View your current config and settings.
+
 ```
 /cofl status
 ```
-Shows active config, connection, filters, bot state.
+
+Shows:
+- Active config
+- Connection status
+- Current filters
+- Bot state
 
 ## Profit Settings
 
-**Minimum profit:**
+### Set Minimum Profit
+
+Set the minimum profit required to purchase an item.
+
+```
+/cofl set minprofit [amount]
+```
+
+**Examples:**
 ```
 /cofl set minprofit 5m
+/cofl set minprofit 10m
+/cofl set minprofit 2.5m
 ```
 
-**Minimum profit percent:**
+### Set Minimum Profit Percentage
+
+Set the minimum profit percentage required.
+
 ```
-/cofl set minprofitpercent 7
+/cofl set minprofitpercent [number]
 ```
 
-**Max price:**
+**Examples:**
 ```
-/cofl set maxprice 100m
+/cofl set minprofitpercent 5
+/cofl set minprofitpercent 10
+/cofl set minprofitpercent 7.5
 ```
 
 ## Price Checking
 
-**Check item value:**
+### Cofl Lore
+
+Display detailed price information for an item.
+
 ```
 /cofl lore
 ```
-Then click stats to view:
-- **Median** (most accurate)
-- BIN price
-- Finder estimate
-- Volume
 
-## Blacklist/Whitelist
+**How to use:**
+1. Type `/cofl lore` in chat
+2. Click on different stats to add them
+3. View Cofl's price estimates
 
-**Blacklist item:**
+**Key Stats:**
+- **Median**: Best indicator of current price
+- **BIN Price**: Recent Buy It Now prices
+- **Finder Estimates**: What Cofl thinks item is worth
+
+**Example:**
 ```
-/cofl blacklist add "Item Name"
+Item: Hyperion
+Median: 850M
+BIN: 875M
+Finder Estimate: 860M
 ```
 
-**Whitelist item:**
-```
-/cofl whitelist add "Item Name"
-```
+Use median for most accurate pricing!
 
-## Control
+### Stop/Resume flipping
 
-**Start/stop flipping:**
 ```
 /cofl flip
 ```
 
-**Connection test:**
+## Premium Features
+
+### Show Premium Info
+
+Display your Cofl subscription details.
+
+```
+/cofl licenses
+```
+
+Shows:
+- Subscription tier (Premium/Premium+)
+- Expiration date
+
+## Information Commands
+
+### Help
+
+Display available Cofl commands.
+
+```
+/cofl h c 1 (first page of commands)
+```
+
+### Connection Status
+
+Check connection to Cofl servers.
+
 ```
 /cofl ping
 ```
 
-## Premium
+### Use Tab Completion
 
-**Check subscription:**
-```
-/cofl premium
-/cofl licenses
-```
+Press Tab while typing a command to see suggestions.
 
-## Help
+### Commands Take Effect Immediately
 
-**Command list:**
-```
-/cofl h c 1
-```
+No need to restart TPM after using commands.
 
-Use Tab for autocomplete.
+### Check Your Settings
 
----
+Use `/cofl status` to verify changes.
 
-**See also:** [Filters & Settings](filters-and-settings.md) | [Manual Pricing](../guides/manual-pricing.md)
+## Next Steps
+
+- Learn about [Filters and Settings](filters-and-settings.md) for advanced configuration
+- Read [Config Structure](config-structure.md) for file-based settings
+- Check [Manual Pricing Guide](../guides/manual-pricing.md) to use `/cofl lore` effectively

@@ -1,82 +1,110 @@
-# VPS Setup
+# VPS Setup Guide
 
-Set up a Virtual Private Server for running TPM 24/7.
+Set up a Virtual Private Server for running standard TPM 24/7.
 
-**Note:** TPM+ users don't need VPS - it's hosted by Coflnet.
+**Note:** TPM+ users don't need a VPS - it's hosted by Coflnet Discord bot.
 
-## Providers
+## Recommended Providers
 
-**Vultr** or **Linode** - $5/mo
+**Vultr** (vultr.com) or **Linode** (linode.com) - $5/mo
 - Alternatives: DigitalOcean, Hetzner, AWS Lightsail
 
 **Requirements:**
 - 1GB RAM (2GB for multiple accounts)
 - 1 vCPU
 - 25GB storage
-- Ubuntu/Debian
+- Ubuntu/Debian OS
 - **Location: Chicago** (closest to Hypixel)
 
-## Setup
+## Setup Steps
 
-### 1. Create Instance
+### 1. Create VPS Instance
 1. Sign up with provider
-2. Create Ubuntu/Debian instance
+2. Create new instance with Ubuntu/Debian
 3. Choose $5-6/mo plan
 4. Select **Chicago** datacenter
 5. Add SSH key (recommended)
+6. Create instance
 
-### 2. Connect
+### 2. Connect via SSH
 **Linux/macOS:**
 ```bash
 ssh root@your-vps-ip
 ```
 
-**Windows:** Use Termius
+**Windows:** Use Termius app
 
-### 3. Install Node.js
+### 3. Initial Setup
 ```bash
+# Update system
 sudo apt update && sudo apt upgrade -y
+
+# Configure firewall
+sudo ufw allow OpenSSH
+sudo ufw enable
+```
+
+### 4. Install Node.js
+```bash
 curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 sudo apt-get install -y nodejs
 node --version  # Verify v18+
 ```
 
-### 4. Install Tools
+### 5. Install Tools
 ```bash
 sudo apt install tmux git -y
 ```
 
-### 5. Get TPM
+### 6. Get TPM
 ```bash
 mkdir -p ~/tpm && cd ~/tpm
-# Download from GitHub releases or git clone
+# Download TPM files from TPM team
+# Via TPM-Loader from Github releases or git clone
 ```
 
-### 6. Configure
+### 7. Install Dependencies
+**Standard installation:**
+```bash
+npm install .
+```
+
+**Using loader:**
+```bash
+tmux
+sudo chmod 777 ./tpm-loader
+./tpm-loader
+```
+
+### 8. Configure
 ```bash
 nano config.json5
 ```
+See [Config Structure](../configuration/config-structure.md) for details.
 
-See [Config Structure](../configuration/config-structure.md).
-
-### 7. Test
+### 9. Test Run
 ```bash
 node index.js
 ```
-
-Should see: Bot → Hypixel → Coflnet → Ready
+Should see: Bot → Hypixel → Coflnet → Ready. Press Ctrl+C to stop.
 
 ## Running 24/7
 
-**Tmux:**
+### Tmux (Recommended)
 ```bash
+# Start
 tmux
 cd ~/tpm && node index.js
-# Ctrl+B, then D to detach
-tmux a  # Reattach
+# Detach: Ctrl+B, then D
+
+# Reattach
+tmux a
+
+# Kill session
+tmux kill-session -t 0
 ```
 
-**PM2:**
+### PM2 (Alternative)
 ```bash
 npm install -g pm2
 pm2 start index.js --name tpm
@@ -84,7 +112,7 @@ pm2 logs tpm
 pm2 restart tpm
 ```
 
-## Maintenance
+## Monitoring & Maintenance
 
 **Check resources:**
 ```bash
@@ -93,25 +121,50 @@ df -h      # Disk
 top        # CPU
 ```
 
-**Update:**
+**Update system:**
 ```bash
 sudo apt update && sudo apt upgrade -y
+cd ~/tpm && npm install .
+```
+
+**Restart bot:**
+```bash
+# Tmux: kill session then restart
+# PM2: pm2 restart tpm
+```
+
+## Multiple Accounts
+
+**Requirements:**
+- 1 account: 1GB RAM
+- 2-3 accounts: 2GB RAM
+- 4+ accounts: 4GB RAM or multiple VPS
+
+**Config:**
+```javascript
+igns: ["Account1", "Account2", "Account3"]
 ```
 
 ## Security
 
 1. Use SSH keys
 2. Keep system updated
-3. Backup config.json5 regularly
+3. Enable UFW firewall
+4. Backup config.json5 regularly:
+```bash
+cp ~/tpm/config.json5 ~/backups/config-$(date +%Y%m%d).json5
+```
 
 ## Troubleshooting
 
-**Won't start:** Check Node.js version and config syntax
+**Bot won't start:** Check Node.js version (`node --version`) and config.json5 syntax
 
-**Disconnects:** Check `ping mc.hypixel.net` and RAM
+**Disconnects:** Check `ping mc.hypixel.net` and `free -h` (may need RAM upgrade)
 
-**Can't connect:** Verify IP, check VPS running, port 22 open
+**Can't connect:** Verify IP, check VPS running in dashboard, ensure port 22 open
+
+See [Common Issues](../troubleshooting/common-issues.md) for more help.
 
 ---
 
-**See also:** [Installation](../getting-started/installation.md) | [Multiple Accounts](multiple-accounts.md) | [Auto-Rotation](auto-rotation.md)
+**Next:** [Config Structure](../configuration/config-structure.md) | [Loading Configs](../guides/loading-configs.md) | [Auto-Rotation](auto-rotation.md)
