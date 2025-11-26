@@ -1,277 +1,129 @@
 # Config Structure
 
-This guide explains the structure of TPM's configuration file (`config.json5`) and all available options.
+TPM configuration file: `config.json5`
 
-## Overview
-
-TPM uses a JSON configuration file (`config.json5`) that exports a configuration object. This file contains all settings for your bot's behavior, authentication, and flipping strategy.
-
-## Basic Structure
+## Basic Example
 
 ```javascript
-module.exports = {
-    // Account Settings
-    igns: ["account1", "account2"],
-
-    // Discord Integration
-    discordID: "your-backend-id",
-    webhook: "your-discord-webhook-url",
-    webhookFormat: "custom message format",
-    sendAllFlips: "optional-test-webhook",
-
-    // Authentication
+{
+    igns: ["YourAccount"],
+    webhook: "https://discord.com/api/webhooks/...",
     session: "your-coflnet-password",
 
-    // Timing Settings
     delay: 250,
-    waittime: 15,
     clickDelay: 100,
+    bedSpam: true,
 
-    // Flipping Configuration
-    percentOfTarget: {...},
-    listHours: {...},
-    useCookie: true,
-    autoCookie: "1d",
-    relist: true,
-    roundTo: 0,
+    percentOfTarget: { /* TODO */ },
+    listHours: { /* TODO */ },
 
-    // Filters and Behaviors
-    skip: {...},
-    doNotRelist: {...},
-    angryCoopPrevention: true,
-    blockUselessMessages: true,
-    pingOnUpdate: false,
-
-    // Advanced Features
-    visitFriend: "friend-username",
-    autoRotate: {...},
-    bedSpam: true
+    skip: { /* TODO */ },
+    doNotRelist: { /* TODO */ }
 }
 ```
 
-## Account Settings
+## Core Settings
 
-### `igns` (Array)
-Minecraft account usernames to use for flipping.
-
+**Accounts:**
 ```javascript
-igns: ["MainAccount", "AltAccount1", "AltAccount2"]
+igns: ["Account1", "Account2"]
 ```
 
-- Supports multiple accounts
-- Each account will run as a separate bot instance
-- Use account names (if token auth) or email addresses (if Microsoft auth)
-
-### `discordID` (String)
-Backend identifier from the TPM server. This is provided when you get access to TPM.
-
-```javascript
-discordID: "abc123xyz789"
-```
-
-## Discord Integration
-
-### `webhook` (String)
-Discord webhook URL for bot notifications.
-
+**Discord:**
 ```javascript
 webhook: "https://discord.com/api/webhooks/..."
+webhookFormat: "{itemName} bought for {price}" // Optional
+sendAllFlips: "webhook-url" // Optional: test webhook
 ```
 
-Notifications include:
-- Purchases made
-- Items sold
-- Profits earned
-- Bot startup/shutdown
-- Errors and warnings
-
-### `webhookFormat` (String)
-Customizable message template with placeholders.
-
-```javascript
-webhookFormat: "Bought {itemName} for {price} coins!"
-```
-
-Available placeholders:
-- `{itemName}` - Item name
-- `{price}` - Purchase price
-- `{target}` - Target sell price
-- `{profit}` - Expected profit
-- `{profitPercent}` - Profit percentage
-- And more (12 total variables)
-
-### `sendAllFlips` (String, Optional)
-Additional webhook URL for testing or monitoring all flip opportunities (not just purchased items).
-
-```javascript
-sendAllFlips: "https://discord.com/api/webhooks/..."
-```
-
-## Authentication
-
-### `session` (String)
-Your Coflnet account password. Required for authenticating with SkyCofl.
-
+**Auth:**
 ```javascript
 session: "your-coflnet-password"
+discordID: "backend-id" // Provided by TPM
 ```
 
-**Important**: Keep this confidential! Never share your config file publicly with your session password in it.
-
-## Timing Settings
-
-### `delay` (Number)
-Milliseconds between actions. Default: 250ms
+## Timing
 
 ```javascript
-delay: 250
+delay: 250              // ms between actions (200-300 recommended)
+clickDelay: 100         // bed spam click interval
+waittime: 15            // bed spam timing
+bedSpam: true           // enable bed spam
 ```
 
-- Lower values = faster actions
-- Too low may cause issues or flags
-- Recommended range: 200-300ms
+## Flipping
 
-### `waittime` (Number)
-Bed spam timing configuration in milliseconds. Default: 15ms
-
+**Price Markup:**
 ```javascript
-waittime: 15
+percentOfTarget: {
+    /* TODO: fill with actual structure */
+}
 ```
 
-Used for bed spamming to claim flips quickly.
-
-### `clickDelay` (Number)
-Interval between bed spam clicks. Recommended: 100-125ms
-
+**Listing Duration:**
 ```javascript
-clickDelay: 100
+listHours: {
+    /* TODO: fill with actual structure */
+}
 ```
 
-### `bedSpam` (Boolean)
-Enable/disable bed spamming for faster flip claiming.
-
-```javascript
-bedSpam: true
-```
-
-## Flipping Configuration
-
-### `percentOfTarget` (Object)
-Price ranges with percentage markups for listing items.
-
-```javascript
-TODO: FILL
-```
-
-### `listHours` (Object)
-Listing duration by price tier.
-
-```javascript
-TODO: FILL
-```
-
-### `useCookie` (Boolean)
-Enable/disable cookie usage for relisting.
-
+**Cookie Settings:**
 ```javascript
 useCookie: true
+autoCookie: "1d"        // y/d/h units
 ```
 
-### `autoCookie` (String)
-Auto-purchase interval for cookies. Supports y/d/h units.
-
+**Pricing:**
 ```javascript
-autoCookie: "1d" 
+roundTo: 0              // 0 = no rounding, 4 = round to 10k
+relist: true
 ```
 
-### `roundTo` (Number)
-Rounding digit for relist pricing.
+## Filters
 
-```javascript
-roundTo: 0  // No rounding
-roundTo: 4  // Round to nearest 10,000
-```
-
-## Behavioral Filters
-
-### `skip` (Object)
-Conditions for bypassing confirmation screens.
-
-# HIGHER BAN RISK
+**Auto-skip (HIGHER BAN RISK):**
 ```javascript
 skip: {
-    profitThreshold: 5000000,  // Auto-buy if profit > 5M
+    profitThreshold: 5000000,    // Auto-buy if profit > 5m
     finderTypes: ["SNIPER", "USER"],
-    cosmetics: true,            // Skip cosmetic items
-    lowProfit: 1000000         // Skip if profit < 1M
+    cosmetics: true,
+    lowProfit: 1000000           // Skip if < 1m
 }
 ```
 
-### `doNotRelist` (Object)
-Exclusion rules for specific items.
-
+**Relist Exclusions:**
 ```javascript
 doNotRelist: {
-    items: ["Aspect of the Dragons", "Necron's Handle"],
-    minProfit: 1000000,        // Don't relist if profit < 1M
-    tags: ["VERY_SPECIAL"],    // Don't relist items with these tags
-    finders: ["STONKS"]        // Don't relist from certain finders
+    items: ["Item Name"],
+    minProfit: 1000000,
+    tags: ["TAG_NAME"],
+    finders: ["FINDER_TYPE"]
 }
 ```
 
-### `angryCoopPrevention` (Boolean)
-Blocks cooperative auction claims.
-
+**Other:**
 ```javascript
-angryCoopPrevention: true
+angryCoopPrevention: true       // Block coop auctions
+blockUselessMessages: true      // Reduce console spam
+pingOnUpdate: false             // Update notifications
 ```
 
-Prevents claiming auctions from coop members (if applicable).
+## Advanced
 
-### `blockUselessMessages` (Boolean)
-Suppress non-essential logs.
-
-```javascript
-blockUselessMessages: true
-```
-
-Reduces console spam by hiding minor messages.
-
-### `pingOnUpdate` (Boolean)
-Notifications for bot updates.
-
-```javascript
-pingOnUpdate: true
-```
-
-## Advanced Features
-
-### `visitFriend` (String)
-Island-based flipping capability.
-
-```javascript
-visitFriend: ""
-```
-
-Bot will visit friend's island for private flips or special access.
-
-### `autoRotate` (Object)
-Account-specific rest/flip scheduling.
-
+**Account Rotation:**
 ```javascript
 autoRotate: {
-    "MainAccount": "r2:3f1",  // Rest 2 hours, flip 3 hours, friend visit 1 hour
-    "AltAccount1": "r1:2f2"   // Custom schedule for each account
+    "Account1": "r2:3f1",    // rest 2h, flip 3h, friend visit 1h
+    "Account2": "r1:2f2"
 }
 ```
+Format: `r[hours]:f[hours]f[hours]`
 
-Schedule format: `"r[hours]:f[hours]f[hours]"`
-- `r` = rest/offline time
-- `f` = flip time
-- Can chain multiple periods
+**Friend Island:**
+```javascript
+visitFriend: "username"
+```
 
-## Next Steps
+---
 
-- Learn about [Filters and Settings](filters-and-settings.md) in detail
-- Understand [Cofl Commands](cofl-commands.md) for in-game adjustments
-- Read about [Loading Configs](../guides/loading-configs.md)
+**See also:** [Filters & Settings](filters-and-settings.md) | [Cofl Commands](cofl-commands.md)

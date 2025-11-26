@@ -8,10 +8,7 @@
   * [SkyCofl](https://sky.coflnet.com/wiki?refId=odeO2g)
   * [TPM Discord](https://discord.gg/nbJm2stTyX)
   * [Config Hub Discord](https://discord.gg/QRhjWZjY6s)
-* [Prerequisites](getting-started/prerequisites.md)
-* [TPM Documentation](getting-started/readme.md)
 * [Installation](getting-started/installation.md)
-* [Quickstart Guide](getting-started/quickstart.md)
 
 ## Configuration
 
